@@ -1,6 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
+import Screenshots from "@/components/Screenshots";
+import VideoDemo from "@/components/VideoDemo";
 import ConversationDemo from "@/components/ConversationDemo";
 import Architecture from "@/components/Architecture";
 import BondSystem from "@/components/BondSystem";
@@ -12,6 +14,8 @@ export default function Home() {
     <main className="relative">
       <Navbar />
       <Hero />
+      <Screenshots />
+      <VideoDemo />
       <Features />
       <div id="demo">
         <ConversationDemo />
