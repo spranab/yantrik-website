@@ -39,7 +39,7 @@ export default function VideoDemo() {
               onClick={() => setPlaying(true)}
             >
               <img
-                src="/screenshots/app_launcher.png"
+                src="/screenshots/desktop_greeting.png"
                 alt="Yantrik OS Tour"
                 className="w-full h-full object-contain opacity-70 group-hover:opacity-50 transition-opacity"
               />

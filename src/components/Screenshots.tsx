@@ -16,6 +16,11 @@ const screenshots = [
     description: "25 built-in apps with search — About, Bond, Email, Files, Memory, Notes, Network, and more",
   },
   {
+    src: "/screenshots/skill_store.png",
+    title: "Skill Store",
+    description: "50 toggleable AI skills across Intelligence, Productivity, Communication, Entertainment, and more",
+  },
+  {
     src: "/screenshots/files.png",
     title: "File Browser",
     description: "Places sidebar, icon-based file list with sizes and dates, navigate your entire filesystem",
@@ -31,24 +36,14 @@ const screenshots = [
     description: "Search through 7,000+ semantic memories — everything the AI has ever learned about you",
   },
   {
-    src: "/screenshots/settings_ai.png",
-    title: "AI & Companion Settings",
-    description: "Configure AI model, backend, context window, tool permissions, bond level, and personality",
-  },
-  {
-    src: "/screenshots/skill_store.png",
-    title: "Skill Store",
-    description: "50 toggleable AI behaviors across Intelligence, Productivity, Entertainment, and more",
+    src: "/screenshots/settings.png",
+    title: "Display Settings",
+    description: "Dark/Light theme, 5 wallpapers, accent color, resolution — customize your desktop",
   },
   {
     src: "/screenshots/calendar.png",
     title: "Calendar",
     description: "Monthly view with event sidebar — integrated with AI for smart scheduling",
-  },
-  {
-    src: "/screenshots/settings.png",
-    title: "Display Settings",
-    description: "Dark/Light theme, 5 wallpapers, accent color, resolution — customize your desktop",
   },
   {
     src: "/screenshots/text_editor.png",
