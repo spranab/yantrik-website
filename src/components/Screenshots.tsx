@@ -41,14 +41,14 @@ const screenshots = [
     description: "Dark/Light theme, 5 wallpapers, accent color, resolution — customize your desktop",
   },
   {
-    src: "/screenshots/calendar.png",
-    title: "Calendar",
-    description: "Monthly view with event sidebar — integrated with AI for smart scheduling",
-  },
-  {
     src: "/screenshots/text_editor.png",
     title: "Text Editor",
-    description: "Built-in editor with Find, AI assistance button, and Save — edit files without leaving the desktop",
+    description: "Built-in editor with Find, AI assistance, and Save — edit files without leaving the desktop",
+  },
+  {
+    src: "/screenshots/browser.png",
+    title: "Web Browser",
+    description: "Chromium integration with AI-powered browsing tools — search, extract, and navigate the web",
   },
 ];
 
