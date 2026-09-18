@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
+import MindSocket from "@/components/MindSocket";
 import Screenshots from "@/components/Screenshots";
 import VideoDemo from "@/components/VideoDemo";
 import ConversationDemo from "@/components/ConversationDemo";
@@ -17,6 +18,7 @@ export default function Home() {
       <Screenshots />
       <VideoDemo />
       <Features />
+      <MindSocket />
       <div id="demo">
         <ConversationDemo />
       </div>

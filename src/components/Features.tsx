@@ -3,102 +3,102 @@
 import { motion } from "framer-motion";
 import {
   Brain,
-  MessageSquareHeart,
+  Monitor,
   Zap,
   Shield,
-  Globe,
+  Network,
   Terminal,
-  Mail,
-  Calendar,
+  Disc,
+  KeyRound,
   Eye,
   Puzzle,
-  HeartHandshake,
-  Sparkles,
+  LayoutGrid,
+  Layers,
 } from "lucide-react";
 
 const features = [
   {
     icon: Brain,
-    title: "Remembers Everything",
+    title: "One Local Memory",
     description:
-      "Semantic memory powered by vector embeddings. Tell it once, it knows forever. Recalls context across days, weeks, months.",
+      "Both minds that attach today talk to the same memory server on the machine. Change the mind and the desktop keeps what it knows.",
     color: "from-indigo-500 to-violet-500",
   },
   {
-    icon: HeartHandshake,
-    title: "Bond System",
+    icon: Monitor,
+    title: "The Shell Is the Desktop",
     description:
-      "Your relationship evolves from Stranger to Partner-in-Crime. Personality, humor, and proactivity adapt as trust grows.",
+      "Not a chat window floating over someone else's session. Rust and Slint on Debian trixie, labwc underneath, Wayland all the way down.",
     color: "from-rose-500 to-pink-500",
   },
   {
-    icon: Sparkles,
-    title: "62 Instincts",
+    icon: Shield,
+    title: "Four Grades, Enforced",
     description:
-      "Morning briefs, evening reflections, humor callbacks, deal alerts, news watch, weather warnings — proactive intelligence that feels alive.",
+      "Every action is safe, standard, sensitive, or dangerous. The OS checks the grade against the caller's ceiling before anything runs.",
     color: "from-amber-500 to-orange-500",
   },
   {
     icon: Zap,
-    title: "215+ Tools",
+    title: "57 Actions",
     description:
-      "File management, browser automation, terminal, email, calendar, Git, Docker, system monitoring, home automation — all voice or text.",
+      "Across ten control surfaces. Every app publishes one, so a mind opens files and drives windows instead of narrating what you should click.",
     color: "from-emerald-500 to-teal-500",
   },
   {
     icon: Eye,
-    title: "Vision & Browser",
+    title: "Structure, Not Pixels",
     description:
-      "Headless Chromium with CDP. Takes screenshots, reads pages, clicks elements by coordinates. The AI can literally see your screen.",
+      "Every app publishes an accessibility tree. A mind reads the interface the way the app understands it, rather than squinting at a screenshot.",
     color: "from-cyan-500 to-blue-500",
   },
   {
-    icon: Terminal,
-    title: "Recipe Engine",
+    icon: Network,
+    title: "Six Methods, One Socket",
     description:
-      "Multi-step automations with conditional logic, cron triggers, and zero LLM cost for tool-only steps. Your personal workflow engine.",
+      "Attach, poll, chunk, complete, fail, detach. That is the whole contract a mind has to meet to take the desk.",
     color: "from-purple-500 to-fuchsia-500",
   },
   {
-    icon: MessageSquareHeart,
-    title: "Natural Communication",
+    icon: KeyRound,
+    title: "No Keys Held Here",
     description:
-      "Anti-repetition filters, synthesis gates, narrative braiding, strategic silence. It talks like a person, not a chatbot.",
+      "The OS stores no model, no endpoint, no API key for a mind. The mind brings its own — and can take it away again.",
     color: "from-sky-500 to-indigo-500",
   },
   {
-    icon: Globe,
-    title: "Context Cortex",
+    icon: LayoutGrid,
+    title: "16 Apps",
     description:
-      "Entity graph, pulse ingestion, baseline learning, pattern mining, and periodic deep reflection. It understands your world.",
+      "Files, terminal, editor, browser, memory, network, email, settings and the rest. First-party, and every one of them drivable.",
     color: "from-teal-500 to-emerald-500",
   },
   {
-    icon: Mail,
-    title: "Email & Calendar",
+    icon: Layers,
+    title: "Local-First, Not Local-Only",
     description:
-      "IMAP/SMTP built-in. Gmail, Outlook, Yahoo. AI summarizes emails, triages by importance, drafts replies. Calendar with smart scheduling.",
+      "The memory and the desktop run on your machine. The model can be local or remote — the OS never sits between you and its credentials.",
     color: "from-blue-500 to-indigo-500",
   },
   {
-    icon: Calendar,
-    title: "Smart Scheduling",
+    icon: Terminal,
+    title: "A Real Terminal",
     description:
-      "Task queue, persistent recipes, cron jobs. 'Remind me to check stocks every morning' becomes a real automation, not a TODO.",
+      "Multi-tab, shell-integrated, and on the same footing as everything else: a surface a mind can call, with the dangerous work graded as such.",
     color: "from-violet-500 to-purple-500",
   },
   {
     icon: Puzzle,
-    title: "Skill Store",
+    title: "50 Skills",
     description:
-      "50 skills you can toggle on/off. Humor, News Watch, Deal Finder, Health Pulse, Philosophy Companion — like an app store for AI behaviors.",
+      "Shipped as files on the machine. Toggle them from the Skill Store, read them in the editor, write your own beside them.",
     color: "from-orange-500 to-red-500",
   },
   {
-    icon: Shield,
-    title: "Privacy-First",
+    icon: Disc,
+    title: "ISO In, Nightly After",
     description:
-      "Everything runs locally on your machine. SQLite database, local embeddings, optional local LLM. Your data never leaves your device.",
+      "Write the image, boot it, and the desktop is there. Updates arrive on a nightly channel — yantrik-update apply and you are current.",
     color: "from-green-500 to-emerald-500",
   },
 ];
@@ -135,8 +135,8 @@ export default function Features() {
             </span>
           </h2>
           <p className="mt-4 text-lg text-zinc-400 max-w-2xl mx-auto">
-            Every feature is designed to make the AI feel less like software and more
-            like someone who genuinely knows you.
+            The desktop is built to be used by something that is not a person — and
+            to stay in charge of what that something is allowed to touch.
           </p>
         </motion.div>
 

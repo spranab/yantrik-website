@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const phrases = [
-  "Remember everything you tell it",
-  "Anticipate what you need next",
-  "Create automations on the fly",
-  "Evolve with every conversation",
-  "Browse the web for you",
-  "Monitor your emails proactively",
+  "hand the desk to any mind that attaches",
+  "read an app as structure, not pixels",
+  "drive real apps through a graded surface",
+  "stop a dangerous action at the ceiling",
+  "keep one memory, whichever mind is on",
+  "let the mind bring its own model",
 ];
 
 export default function Hero() {
@@ -80,7 +80,7 @@ export default function Hero() {
             transition={{ delay: 0.2 }}
           >
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            Built in Rust. Runs on Linux.
+            Built in Rust. Installs from an ISO.
           </motion.div>
 
           {/* Main headline */}
@@ -94,10 +94,11 @@ export default function Hero() {
 
           {/* Subheadline */}
           <p className="mt-6 text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-            Yantrik OS is an AI-native desktop shell with a companion that{" "}
-            <span className="text-zinc-200">remembers everything</span>,{" "}
-            <span className="text-zinc-200">anticipates your needs</span>, and{" "}
-            <span className="text-zinc-200">evolves with you</span>.
+            A Rust desktop where the shell{" "}
+            <span className="text-zinc-200">is</span> the desktop — and every app{" "}
+            <span className="text-zinc-200">publishes what a mind may do to it</span>.
+            Bring the mind;{" "}
+            <span className="text-zinc-200">the OS holds the desk</span>.
           </p>
 
           {/* Typing animation */}
@@ -112,7 +113,7 @@ export default function Hero() {
           {/* CTA buttons */}
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <motion.a
-              href="https://github.com/pranab-repo/yantrik-os"
+              href="https://github.com/yantrikos/yantrik-os"
               target="_blank"
               className="px-8 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-medium transition-all hover:shadow-[0_0_30px_rgba(99,102,241,0.3)] flex items-center gap-2"
               whileHover={{ scale: 1.02 }}
@@ -142,9 +143,9 @@ export default function Hero() {
           transition={{ delay: 0.6, duration: 0.6 }}
         >
           {[
-            { value: "215+", label: "AI Tools" },
-            { value: "62", label: "Instincts" },
-            { value: "23", label: "Built-in Apps" },
+            { value: "16", label: "Built-in Apps" },
+            { value: "57", label: "Control Actions" },
+            { value: "10", label: "Control Surfaces" },
             { value: "50", label: "Skills" },
           ].map((stat) => (
             <div key={stat.label} className="text-center">

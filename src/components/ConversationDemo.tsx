@@ -6,50 +6,55 @@ import { useEffect, useState } from "react";
 interface Message {
   role: "user" | "yantrik";
   text: string;
-  tools?: string[];
-  memories?: number;
+  surface?: string;
+  grade?: string;
+  outcome?: string;
 }
 
 const conversation: Message[] = [
   {
     role: "user",
-    text: "Hey, remember that my birthday is June 15th and I have a dog named Max.",
+    text: "Open the notes file I was in last night.",
   },
   {
     role: "yantrik",
-    text: "Got it! I've saved both — your birthday on June 15th and Max. How's Max doing today?",
-    tools: ["remember", "remember"],
-    memories: 0,
+    text: "It's up in the editor. You left off partway through the third section.",
+    surface: "files",
+    grade: "standard",
+    outcome: "allowed",
   },
   {
     role: "user",
-    text: "I have a big presentation at work next Monday. I'm nervous about the revenue numbers.",
+    text: "What did we settle on for the compositor?",
   },
   {
     role: "yantrik",
-    text: "Noted. What specifically worries you — are the numbers below expectations, or is it more about how to present them?",
-    tools: ["remember"],
-    memories: 3,
+    text: "Two weeks ago you decided labwc stays, and nothing gets swapped before the ISO is cut.",
+    surface: "memory",
+    grade: "safe",
+    outcome: "allowed",
   },
   {
     role: "user",
-    text: "What color gift wrap should someone get me?",
+    text: "Wipe the build directory and start clean.",
   },
   {
     role: "yantrik",
-    text: "Based on what I know about you — blue would be perfect, it's your favorite color!",
-    tools: [],
-    memories: 8,
+    text: "That one is graded dangerous, and my ceiling stops short of it. Raise the ceiling and I'll run it.",
+    surface: "files",
+    grade: "dangerous",
+    outcome: "refused at the ceiling",
   },
   {
     role: "user",
-    text: "Can you set up a daily reminder to walk Max at 6pm?",
+    text: "Raised. Go ahead.",
   },
   {
     role: "yantrik",
-    text: "Done! Your daily 6 PM reminder to walk Max is all set. You'll get a notification every evening.",
-    tools: ["create_recipe", "remember"],
-    memories: 10,
+    text: "Cleared. The build directory is empty and the terminal is waiting on the next run.",
+    surface: "terminal",
+    grade: "dangerous",
+    outcome: "allowed",
   },
 ];
 
@@ -82,7 +87,8 @@ export default function ConversationDemo() {
             </span>
           </h2>
           <p className="mt-4 text-lg text-zinc-400">
-            A real conversation from our 5-user benchmark. 98.75% accuracy.
+            A mind at the desk, calling real apps — and running into the ceiling
+            when it reaches for something dangerous.
           </p>
         </motion.div>
 
@@ -99,7 +105,7 @@ export default function ConversationDemo() {
             <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
             <div className="w-3 h-3 rounded-full bg-green-500/70" />
             <span className="ml-3 text-xs text-zinc-500 font-mono">
-              yantrik ask --json
+              mind attached — control surface
             </span>
           </div>
 
@@ -127,18 +133,23 @@ export default function ConversationDemo() {
                       </span>
                       <div>
                         <p className="text-zinc-200 text-sm">{msg.text}</p>
-                        {(msg.tools?.length || msg.memories) ? (
-                          <div className="flex items-center gap-3 mt-2">
-                            {msg.tools && msg.tools.length > 0 && (
-                              <span className="text-xs text-zinc-600 font-mono">
-                                tools: [{msg.tools.join(", ")}]
-                              </span>
-                            )}
-                            {msg.memories !== undefined && (
-                              <span className="text-xs text-zinc-600 font-mono">
-                                memories: {msg.memories}
-                              </span>
-                            )}
+                        {msg.surface ? (
+                          <div className="flex flex-wrap items-center gap-3 mt-2">
+                            <span className="text-xs text-zinc-600 font-mono">
+                              surface: {msg.surface}
+                            </span>
+                            <span className="text-xs text-zinc-600 font-mono">
+                              grade: {msg.grade}
+                            </span>
+                            <span
+                              className={`text-xs font-mono ${
+                                msg.outcome === "allowed"
+                                  ? "text-emerald-600"
+                                  : "text-amber-600"
+                              }`}
+                            >
+                              {msg.outcome}
+                            </span>
                           </div>
                         ) : null}
                       </div>
@@ -166,7 +177,7 @@ export default function ConversationDemo() {
           </div>
         </motion.div>
 
-        {/* Benchmark results */}
+        {/* What the control surface actually is */}
         <motion.div
           className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4"
           initial={{ opacity: 0 }}
@@ -175,10 +186,10 @@ export default function ConversationDemo() {
           transition={{ delay: 0.3 }}
         >
           {[
-            { label: "Accuracy", value: "98.75%", sub: "39.5/40 tests" },
-            { label: "Users Tested", value: "5", sub: "isolated DBs" },
-            { label: "Memory Recall", value: "100%", sub: "zero cross-leak" },
-            { label: "Avg Response", value: "~18s", sub: "with tool calls" },
+            { label: "Actions", value: "57", sub: "callable by a mind" },
+            { label: "Surfaces", value: "10", sub: "apps and services" },
+            { label: "Grades", value: "4", sub: "safe → dangerous" },
+            { label: "Minds", value: "2", sub: "attach today" },
           ].map((stat) => (
             <div
               key={stat.label}
