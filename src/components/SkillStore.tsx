@@ -48,8 +48,8 @@ export default function SkillStore() {
             </span>
           </h2>
           <p className="mt-4 text-lg text-zinc-400 max-w-xl mx-auto">
-            Toggle AI behaviors like apps. 50 skills across intelligence,
-            wellness, productivity, and creativity.
+            50 skills ship as files on the machine. Toggle them like apps, read
+            them like text, write your own beside them.
           </p>
         </motion.div>
 

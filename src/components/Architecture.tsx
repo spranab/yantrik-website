@@ -4,42 +4,42 @@ import { motion } from "framer-motion";
 
 const layers = [
   {
-    name: "Wayland Compositor",
-    desc: "labwc + Slint UI framework",
+    name: "Desktop Shell",
+    desc: "labwc on Wayland, Slint in Rust",
     color: "border-zinc-700",
-    items: ["23 native apps", "Theming", "Window management", "Dock & taskbar"],
+    items: ["16 native apps", "Debian trixie", "No Electron", "Window management"],
   },
   {
-    name: "AI Companion",
-    desc: "Rust-native intelligence engine",
+    name: "Control Surface",
+    desc: "What a mind may do, and how far",
     color: "border-indigo-500/50",
     items: [
-      "Agent loop (30 steps)",
-      "Tool registry (215+)",
-      "Memory & embeddings",
-      "Instinct scheduler",
+      "57 actions",
+      "10 surfaces",
+      "safe / standard / sensitive / dangerous",
+      "Checked against the caller's ceiling",
     ],
   },
   {
-    name: "Context Cortex",
-    desc: "Self-learning awareness layer",
+    name: "Accessibility Trees",
+    desc: "Every app, readable as structure",
     color: "border-violet-500/50",
     items: [
-      "Entity graph",
-      "Pulse ingestion",
-      "Baseline learning",
-      "Pattern mining",
+      "Published per app",
+      "Structure, not pixels",
+      "Read before acting",
+      "Same tree for every mind",
     ],
   },
   {
-    name: "Backends",
-    desc: "Pluggable LLM + storage",
+    name: "Mind Socket",
+    desc: "Bring your own mind, and its model",
     color: "border-emerald-500/50",
     items: [
-      "Claude CLI / Ollama / OpenAI",
-      "SQLite + vector search",
-      "Local embeddings (MiniLM)",
-      "CDP browser automation",
+      "attach / detach",
+      "poll / chunk",
+      "complete / fail",
+      "One local memory server",
     ],
   },
 ];
@@ -61,8 +61,8 @@ export default function Architecture() {
             </span>
           </h2>
           <p className="mt-4 text-lg text-zinc-400 max-w-2xl mx-auto">
-            Not a chatbot bolted onto a desktop. The AI <em>is</em> the desktop.
-            Every layer is designed for intelligence.
+            Not a chatbot bolted onto a desktop. The shell <em>is</em> the
+            desktop, and every layer under it is something a mind can call.
           </p>
         </motion.div>
 
@@ -110,12 +110,12 @@ export default function Architecture() {
           {[
             "Rust",
             "Slint",
-            "SQLite",
             "Wayland",
-            "Chromium CDP",
-            "IMAP/SMTP",
-            "MiniLM",
-            "Claude / Ollama",
+            "labwc",
+            "Debian trixie",
+            "Socket protocol",
+            "ISO install",
+            "yantrik-update",
           ].map((tech) => (
             <span
               key={tech}

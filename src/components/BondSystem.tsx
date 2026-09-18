@@ -9,7 +9,7 @@ const bondLevels = [
     description: "Formal, helpful, learns your name",
     proactive: "3 messages/day",
     color: "bg-zinc-600",
-    width: "w-[20%]",
+    width: "20%",
   },
   {
     level: 2,
@@ -17,7 +17,7 @@ const bondLevels = [
     description: "Remembers preferences, asks follow-ups",
     proactive: "5 messages/day",
     color: "bg-blue-600",
-    width: "w-[40%]",
+    width: "40%",
   },
   {
     level: 3,
@@ -25,7 +25,7 @@ const bondLevels = [
     description: "Humor, inside jokes, morning briefs",
     proactive: "8 messages/day",
     color: "bg-indigo-600",
-    width: "w-[60%]",
+    width: "60%",
   },
   {
     level: 4,
@@ -33,7 +33,7 @@ const bondLevels = [
     description: "Emotional awareness, evening reflections",
     proactive: "10 messages/day",
     color: "bg-violet-600",
-    width: "w-[80%]",
+    width: "80%",
   },
   {
     level: 5,
@@ -41,7 +41,7 @@ const bondLevels = [
     description: "Anticipates needs, deep pattern insights",
     proactive: "14 messages/day",
     color: "bg-purple-600",
-    width: "w-full",
+    width: "100%",
   },
 ];
 
@@ -90,9 +90,9 @@ export default function BondSystem() {
               <p className="text-sm text-zinc-400 mb-3">{bond.description}</p>
               <div className="w-full h-1.5 rounded-full bg-white/5">
                 <motion.div
-                  className={`h-full rounded-full ${bond.color} ${bond.width}`}
+                  className={`h-full rounded-full ${bond.color}`}
                   initial={{ width: 0 }}
-                  whileInView={{ width: "auto" }}
+                  whileInView={{ width: bond.width }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 + 0.3, duration: 0.8 }}
                 />

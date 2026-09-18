@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# yantrik-website
 
-## Getting Started
+The marketing site for [Yantrik OS](https://github.com/yantrikos/yantrik-os) — a
+single landing page describing what the OS is: a Rust and Slint desktop on Debian
+trixie where every app publishes a graded control surface and an accessibility
+tree, and any mind can attach over a socket.
 
-First, run the development server:
+Next.js (App Router) + Tailwind CSS v4 + framer-motion + lucide-react.
+
+## Running it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+pnpm dev      # http://localhost:3000
+pnpm build    # static export into ./out
+pnpm lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+pnpm is the package manager here — `pnpm-lock.yaml` and `pnpm-workspace.yaml` are
+committed.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Static export
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+`next.config.ts` sets `output: "export"`, so `pnpm build` writes a fully static
+site to `out/`. There is no server runtime: no API routes, no middleware, no
+server actions, no `next/image` optimization. Deploy `out/` to any static host.
 
-## Learn More
+## Layout
 
-To learn more about Next.js, take a look at the following resources:
+- `src/app/page.tsx` — section order for the whole page
+- `src/app/layout.tsx` — fonts (Inter, JetBrains Mono) and metadata
+- `src/app/globals.css` — dark-only theme tokens and the `.glass`, `.grid-bg`,
+  `.radial-glow`, `.feature-card` utilities every section shares
+- `src/components/` — one file per section
+- `public/screenshots/`, `public/videos/` — captured from a running machine
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Copy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Every number on the page is meant to be checkable against a running install —
+app count, skills, control-surface actions and surfaces, minds that attach. If a
+claim cannot be verified, the sentence gets written without it rather than
+rounded up.

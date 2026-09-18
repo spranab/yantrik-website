@@ -23,7 +23,7 @@ export default function VideoDemo() {
             </span>
           </h2>
           <p className="mt-4 text-lg text-zinc-400">
-            35 seconds through 10 screens. Desktop, apps, settings, skill store, memory browser.
+            A pass through the desktop — apps, settings, the skill store, the memory browser.
           </p>
         </motion.div>
 

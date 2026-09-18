@@ -8,17 +8,17 @@ const screenshots = [
   {
     src: "/screenshots/desktop_greeting.png",
     title: "Desktop",
-    description: "Aurora wallpaper, personalized greeting, floating AI orb, dock with 14 quick-access apps",
+    description: "Aurora wallpaper, personalized greeting, floating orb for the attached mind, dock along the bottom",
   },
   {
     src: "/screenshots/app_launcher.png",
     title: "App Launcher",
-    description: "25 built-in apps with search — About, Bond, Email, Files, Memory, Notes, Network, and more",
+    description: "16 built-in apps with search — About, Bond, Email, Files, Memory, Notes, Network, and more",
   },
   {
     src: "/screenshots/skill_store.png",
     title: "Skill Store",
-    description: "50 toggleable AI skills across Intelligence, Productivity, Communication, Entertainment, and more",
+    description: "50 skills, shipped as files on the machine, each one toggleable from here",
   },
   {
     src: "/screenshots/files.png",
@@ -33,7 +33,7 @@ const screenshots = [
   {
     src: "/screenshots/memory_browser.png",
     title: "Memory Browser",
-    description: "Search through 7,000+ semantic memories — everything the AI has ever learned about you",
+    description: "Search the local memory server — the same store every attached mind reads and writes",
   },
   {
     src: "/screenshots/settings.png",
@@ -48,7 +48,7 @@ const screenshots = [
   {
     src: "/screenshots/browser.png",
     title: "Web Browser",
-    description: "Chromium integration with AI-powered browsing tools — search, extract, and navigate the web",
+    description: "Browse from the desktop, and let the attached mind drive the same window through its control surface",
   },
 ];
 
@@ -74,7 +74,7 @@ export default function Screenshots() {
             </span>
           </h2>
           <p className="mt-4 text-lg text-zinc-400">
-            A full desktop environment with 25 native apps. No Electron. Pure Rust + Slint.
+            A full desktop environment with 16 native apps. No Electron. Rust + Slint on Debian trixie.
           </p>
         </motion.div>
 
@@ -135,7 +135,7 @@ export default function Screenshots() {
               <button
                 key={i}
                 onClick={() => setCurrent(i)}
-                className={`shrink-0 w-24 h-15 rounded-lg overflow-hidden border-2 transition-all ${
+                className={`shrink-0 w-24 h-[3.75rem] rounded-lg overflow-hidden border-2 transition-all ${
                   i === current
                     ? "border-indigo-500 opacity-100"
                     : "border-transparent opacity-50 hover:opacity-75"
