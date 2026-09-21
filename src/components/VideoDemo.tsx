@@ -17,13 +17,15 @@ export default function VideoDemo() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl sm:text-5xl font-bold text-white">
-            Watch the{" "}
+            Watch it{" "}
             <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              tour
+              work
             </span>
           </h2>
           <p className="mt-4 text-lg text-zinc-400">
-            A pass through the desktop — apps, settings, the skill store, the memory browser.
+            One real request on a live machine. Asked for a launch checklist, Hermes Agent opens
+            Notes and writes it through the control surface, then reports each step it took. The
+            three minutes it spent working play at 12× speed.
           </p>
         </motion.div>
 
@@ -39,8 +41,8 @@ export default function VideoDemo() {
               onClick={() => setPlaying(true)}
             >
               <img
-                src="/screenshots/desktop_greeting.png"
-                alt="Yantrik OS Tour"
+                src="/videos/tour-poster.jpg"
+                alt="The Yantrik OS desktop in agent mode, before it is asked anything"
                 className="w-full h-full object-contain opacity-70 group-hover:opacity-50 transition-opacity"
               />
               <div className="absolute inset-0 flex items-center justify-center">
@@ -53,7 +55,9 @@ export default function VideoDemo() {
             <div className="aspect-[16/10] bg-black">
               <video
                 src="/videos/tour.mp4"
+                poster="/videos/tour-poster.jpg"
                 autoPlay
+                playsInline
                 controls
                 className="w-full h-full"
                 onEnded={() => setPlaying(false)}

@@ -8,6 +8,7 @@ import ConversationDemo from "@/components/ConversationDemo";
 import Architecture from "@/components/Architecture";
 import BondSystem from "@/components/BondSystem";
 import SkillStore from "@/components/SkillStore";
+import Download from "@/components/Download";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -25,6 +26,7 @@ export default function Home() {
       <BondSystem />
       <SkillStore />
       <Architecture />
+      <Download />
       <Footer />
     </main>
   );

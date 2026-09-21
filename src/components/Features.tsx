@@ -68,9 +68,9 @@ const features = [
   },
   {
     icon: LayoutGrid,
-    title: "16 Apps",
+    title: "14 Apps",
     description:
-      "Files, terminal, editor, browser, memory, network, email, settings and the rest. First-party, and every one of them drivable.",
+      "Notes, terminal, editor, email, calendar, documents, slides, network, containers and the rest. First-party, and every one of them drivable.",
     color: "from-teal-500 to-emerald-500",
   },
   {
