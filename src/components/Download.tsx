@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Download as DownloadIcon, ShieldCheck, FileCode2 } from "lucide-react";
-import release from "@/data/release.json";
+import { useEffect, useState } from "react";
+import fallback from "@/data/release.json";
 
 const ISO_BASE = "https://iso.yantrikos.com/nightly";
 
@@ -21,7 +22,42 @@ const facts = [
   },
 ];
 
+type Release = { version: string; date: string; size: string; file: string; sha256: string; commit: string };
+
+// The release host keeps the newest three images and deletes the rest, so a version, file name and
+// checksum written into this page go stale within a day — the button was once a 404 with a
+// confident SHA-256 under it. The host now says what its newest image is (latest.json, written by
+// the publisher), and this reads that. Until it answers, and if it never does, the page falls back
+// to the `latest` alias, which always resolves, and to the checksum FILE rather than a checksum.
+function useRelease(): Release & { live: boolean } {
+  const [release, setRelease] = useState<Release & { live: boolean }>({ ...fallback, live: false });
+  useEffect(() => {
+    let cancelled = false;
+    fetch(`${ISO_BASE}/latest.json`, { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+      .then((j) => {
+        if (cancelled || !j?.file || !/^[0-9a-f]{64}$/.test(j.sha256 ?? "")) return;
+        const commit = /-g([0-9a-f]{7,40})\.iso$/.exec(j.file)?.[1] ?? "";
+        setRelease({
+          version: j.version || fallback.version,
+          date: j.date || "",
+          size: j.bytes ? `${(j.bytes / 2 ** 30).toFixed(2)} GiB` : "",
+          file: j.file,
+          sha256: j.sha256,
+          commit,
+          live: true,
+        });
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+  return release;
+}
+
 export default function Download() {
+  const release = useRelease();
   const iso = `${ISO_BASE}/${release.file}`;
   return (
     <section id="download" className="relative py-32 px-6">
@@ -55,7 +91,7 @@ export default function Download() {
                 </span>
               </div>
               <div className="text-sm text-zinc-500 mt-1">
-                {release.date} · {release.size} · amd64
+                {[release.date, release.size, "amd64"].filter(Boolean).join(" · ")}
               </div>
             </div>
             <a
@@ -73,7 +109,7 @@ export default function Download() {
               SHA-256
             </div>
             <code className="font-mono text-xs sm:text-sm text-zinc-300 break-all">
-              {release.sha256}
+              {release.sha256 || "In the checksum file beside the image — linked below."}
             </code>
           </div>
 
@@ -103,7 +139,7 @@ export default function Download() {
               className="hover:text-zinc-300 transition-colors flex items-center gap-1.5"
             >
               <FileCode2 className="w-4 h-4" />
-              Source (GPL-3.0) · built from {release.commit}
+              Source (GPL-3.0){release.commit ? ` · built from ${release.commit}` : ""}
             </a>
           </div>
         </motion.div>
