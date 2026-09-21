@@ -21,6 +21,13 @@ const numbers = [
   },
 ];
 
+const job = {
+  time: "2:09",
+  calls: 46,
+  pages: 7,
+  slides: 7,
+};
+
 export default function VideoDemo() {
   const [playing, setPlaying] = useState(false);
 
@@ -43,8 +50,9 @@ export default function VideoDemo() {
           <p className="mt-4 text-lg text-zinc-400 max-w-3xl mx-auto">
             An AI can already use a computer — by taking a picture of the screen, guessing where to
             click, and taking another. On Yantrik OS every app tells the mind what it is, what it can
-            do, and which of those things cannot be undone. The same task, both ways, on the same
-            machine, in ninety seconds. Sound on.
+            do, and which of those things cannot be undone. The same task both ways on the same
+            machine, then one sentence turned into a research agent, a slide deck, two calendar
+            entries and a checklist. Two minutes. Sound on.
           </p>
         </motion.div>
 
@@ -103,6 +111,42 @@ export default function VideoDemo() {
           ))}
         </div>
 
+        <motion.div
+          className="mt-6 glass rounded-2xl p-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <div className="text-sm uppercase tracking-widest text-zinc-500">One sentence, a whole job</div>
+          <p className="mt-3 text-zinc-300 leading-relaxed">
+            “I’m giving a 10-minute talk on AI agents on Thursday 1 October at 3pm. Spin up a
+            research agent for a quick look at what Hacker News says about agents today, then build
+            my slides, book the talk and a rehearsal the day before in my calendar, and leave a
+            speaker checklist in Notes. When it’s all ready, start the slideshow.”
+          </p>
+          <div className="mt-5 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+            {[
+              [job.time, "real time, start to slideshow"],
+              [String(job.calls), "desktop calls, 0 screenshots"],
+              [String(job.pages), "web pages read as text"],
+              [String(job.slides), "slides, plus 2 events and a checklist"],
+            ].map(([v, l]) => (
+              <div key={l}>
+                <div className="text-3xl font-bold text-teal-300">{v}</div>
+                <div className="mt-1 text-xs text-zinc-500">{l}</div>
+              </div>
+            ))}
+          </div>
+          <p className="mt-5 text-sm text-zinc-400 leading-relaxed">
+            Hermes Agent created a research sub-agent with the same desktop tools, which read Hacker
+            News through the Browser app; then it worked through Presentation, Calendar and Notes,
+            each brought forward as the work moved to it. The person switched the mind to <em>Auto</em> first — the way you would
+            before handing over something long — so nothing in it needed an approval card, and
+            everything it did unasked is in the machine’s audit list. Its own report at the end says
+            what the desktop’s guard would not let the research agent do, rather than papering over it.
+          </p>
+        </motion.div>
+
         <p className="mt-8 text-sm text-zinc-500 leading-relaxed max-w-4xl">
           How this was measured. The task was “Put lunch with Sam on my calendar, Friday at 1pm, and
           show me that day”, on one VM. The screenshot run was driven for real by a vision model
@@ -112,10 +156,14 @@ export default function VideoDemo() {
           the panel beside it is what the mind actually sent and received. Only what each approach
           spends <em>looking at the computer</em> is counted — not reasoning, not system prompts.
           Text is counted with the o200k tokenizer; a screenshot as width × height ÷ 750. The
-          approval, the prep note, the mode menu and the calendar reminder later in the film are
-          real takes on the same machine. The music was synthesised for the film.{" "}
+          whole-job scene is one unedited take at the speeds marked; the approval, the mode menu
+          and the calendar reminder after it are real takes on the same machine. The music was synthesised for the film.{" "}
           <a href="/measure/calendar-task.json" className="text-zinc-300 underline underline-offset-4 hover:text-white">
             The raw calls and replies
+          </a>
+          {" · "}
+          <a href="/measure/whole-job.json" className="text-zinc-300 underline underline-offset-4 hover:text-white">
+            the whole-job take’s steps
           </a>
           .
         </p>
