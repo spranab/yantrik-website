@@ -1,0 +1,106 @@
+{
+ "task": "Put lunch with Sam on my calendar, Friday at 1pm, and show me that day",
+ "machine": "Yantrik OS v0.1.0-250 (690ce9b + the fixes of 21 Sep), QEMU VM, 1280x800",
+ "mind": "Hermes Agent 0.14.0, deepseek-v4.1-flash via Ollama Cloud, through the yos-mcp bridge",
+ "tokenizer": "o200k_base (tiktoken). A screenshot is counted as width x height / 750 tokens, the published rule of thumb for a vision model's image input: 1280 x 800 / 750 = 1365.",
+ "screenshot_way": {
+  "screenshots": 7,
+  "tokens_each": 1365,
+  "total": 9555,
+  "steps": [
+   "look at the desktop",
+   "open Calendar, look",
+   "pick Friday, look",
+   "press New, look",
+   "type the title, look",
+   "fix the time, look",
+   "save, look to check"
+  ],
+  "note": "Driven for real by a vision model (Claude) taking a screenshot after every action and clicking by coordinates. That run took 9 screenshots; 2 were spent on a launcher bug that has since been fixed, and are not counted. Only the screenshots are counted - not the model's reasoning, and not its system prompt."
+ },
+ "yantrik_way": {
+  "total": 2326,
+  "calls": [
+   {
+    "tool": "os_describe",
+    "arguments": {
+     "app": "calendar"
+    },
+    "reply": "Calendar — 1 events stored, next: Dentist appointment at 2026-09-25T10:00:00\nrevision: 5b84a894faba48ce\n{\n  \"events\": 1,\n  \"reminders\": {\"lead_minutes\": 10, \"note\": \"An event is announced through the notifications service ten minutes before it starts, once, and only while this service is running. This service is started on demand, so on a machine where nothing has opened the calendar since boot nothing is ticking and an event can pass unannounced. All-day events are not announced: there is no time of day to announce them at.\", \"running\": true},\n  \"store\": \"/home/yantrik/.local/share/yantrik/calendar\",\n  \"upcoming\": [{\"all_day\": false, \"end\": \"2026-09-25T10:45:00\", \"id\": \"01a0c489-95f9-7e63-8417-993542451dea\", \"start\": \"2026-09-25T10:00:00\", \"title\": \"Dentist appointment\"}]\n}\n\nThis is calendar's background service: it reports what is stored and takes no actions. The calendar app itself is not open — to change anything, open it (os_act on shell: open_app name=calendar) and describe it again.",
+    "tokens": 322
+   },
+   {
+    "tool": "os_act",
+    "arguments": {
+     "app": "shell",
+     "action": "open_app",
+     "args": {
+      "name": "calendar"
+     }
+    },
+    "reply": "Yantrik — desktop screen, 1 windows open, email, notes and perception not running\naccepted: True, settled: False\nrevision: fc706d99840f28ae\n{\n  \"launching\": \"calendar\"\n}\n(state omitted; `yos describe shell`, or re-run with --full)",
+    "tokens": 97
+   },
+   {
+    "tool": "os_describe",
+    "arguments": {
+     "app": "calendar"
+    },
+    "reply": "Calendar — September 2026, nothing on day 21\nrevision: 53a8404174f4a115\n{\n  \"days_with_events\": [{\"day\": 25, \"events\": 1}],\n  \"events_on_selected_day\": [],\n  \"events_this_month\": 1,\n  \"month\": \"September 2026\",\n  \"month_number\": 9,\n  \"notice\": \"\",\n  \"selected_day\": 21,\n  \"view\": \"month\",\n  \"year\": 2026\n}\n  act: select_day(day)  [standard, settles on return]\n       Show what is on one day of the month shown\n         day: number — Day of the month, 1-31\n  act: show_month(direction)  [standard, settles on return]\n       Move to the next or previous month\n         direction: string — next | previous\n  act: go_to_today()  [standard, settles on return]\n       Jump back to the current month and day\n  act: add_event(date, time, title, all_day?, duration_min?, notes?)  [standard, settles on return]\n       Put something on the calendar\n         date: string — YYYY-MM-DD\n         time: string — HH:MM, 24-hour\n         title: string\n         all_day?: boolean — A whole day rather than a time; `time` and `duration_min` are not used with it\n         duration_min?: number — How long it runs, in minutes; an hour when not given\n         notes?: string\n  act: delete_event(date?, id?, title?)  [sensitive, settles on return]\n       Take an event off the calendar. It is not recoverable\n         date?: string — YYYY-MM-DD, given with `title`\n         id?: string — The id the store gave the event — `add_event` answers with it and `describe` lists it for every event it shows\n         title?: string — The event's exact title, given with `date`, when the id is not known\n  act: update_event(id, date?, duration_min?, notes?, time?, title?)  [standard, settles on return]\n       Move or rename an event that is already on the calendar\n         id: string — The id the store gave the event\n         date?: string — Move it to this day, YYYY-MM-DD\n         duration_min?: number — How long it runs, in minutes; unchanged when not given\n         notes?: string\n         time?: string — Move it to this time, HH:MM\n         title?: string — A new title\n  act: set_view(view)  [standard, settles on return]\n       Switch between the month, week and day views\n         view: string — month | week | day",
+    "tokens": 619
+   },
+   {
+    "tool": "os_act",
+    "arguments": {
+     "action": "add_event",
+     "app": "calendar",
+     "args": {
+      "date": "2026-09-25",
+      "duration_min": 60,
+      "time": "13:00",
+      "title": "Lunch with Sam"
+     }
+    },
+    "reply": "Calendar — September 2026, nothing on day 21\naccepted: True, settled: True\nrevision: 77670b0f2a521c71\n{\n  \"added\": \"Lunch with Sam\",\n  \"all_day\": false,\n  \"id\": \"01a0c574-593b-7df2-bfc3-44472bb23078\",\n  \"on\": \"2026-09-25 13:00\"\n}\n(state omitted; `yos describe calendar`, or re-run with --full)",
+    "tokens": 169
+   },
+   {
+    "tool": "os_act",
+    "arguments": {
+     "action": "select_day",
+     "app": "calendar",
+     "args": {
+      "day": 25
+     }
+    },
+    "reply": "Calendar — September 2026, 2 things on day 25\naccepted: True, settled: True\nrevision: 5326b418ffca20ac\n{\n  \"day\": 25,\n  \"events\": [\n    \"Dentist appointment\",\n    \"Lunch with Sam\"\n  ]\n}\n(state omitted; `yos describe calendar`, or re-run with --full)",
+    "tokens": 117
+   },
+   {
+    "tool": "os_act",
+    "arguments": {
+     "action": "set_view",
+     "app": "calendar",
+     "args": {
+      "view": "day"
+     }
+    },
+    "reply": "Calendar — Friday, 25 September 2026, 2 events on the grid\naccepted: True, settled: True\nrevision: 4b61168c63d21fa7\n{\n  \"day\": \"Friday, 25 September 2026\",\n  \"events\": 2,\n  \"view\": \"day\"\n}\n(state omitted; `yos describe calendar`, or re-run with --full)",
+    "tokens": 120
+   },
+   {
+    "tool": "os_describe",
+    "arguments": {
+     "app": "calendar"
+    },
+    "reply": "Calendar — Friday, 25 September 2026, 2 events on the grid\nrevision: 4b61168c63d21fa7\n{\n  \"day_shown\": \"Friday, 25 September 2026\",\n  \"days_with_events\": [{\"day\": 25, \"events\": 2}],\n  \"events_on_day_grid\": [{\"at\": \"10:00\", \"id\": \"01a0c489-95f9-7e63-8417-993542451dea\", \"minutes\": 45, \"title\": \"Dentist appointment\"}, {\"at\": \"13:00\", \"id\": \"01a0c574-593b-7df2-bfc3-44472bb23078\", \"minutes\": 60, \"title\": \"Lunch with Sam\"}],\n  \"events_on_selected_day\": [{\"all_day\": false, \"date\": \"2026-09-25\", \"id\": \"01a0c489-95f9-7e63-8417-993542451dea\", \"time\": \"10:00 – 10:45\", \"title\": \"Dentist appointment\"}, {\"all_day\": false, \"date\": \"2026-09-25\", \"id\": \"01a0c574-593b-7df2-bfc3-44472bb23078\", \"time\": \"13:00 – 14:00\", \"title\": \"Lunch with Sam\"}],\n  \"events_this_month\": 2,\n  \"month\": \"September 2026\",\n  \"month_number\": 9,\n  \"notice\": \"\",\n  \"selected_day\": 25,\n  \"view\": \"day\",\n  \"year\": 2026\n}\n  act: select_day(day)  [standard, settles on return]\n       Show what is on one day of the month shown\n         day: number — Day of the month, 1-31\n  act: show_month(direction)  [standard, settles on return]\n       Move to the next or previous month\n         direction: string — next | previous\n  act: go_to_today()  [standard, settles on return]\n       Jump back to the current month and day\n  act: add_event(date, time, title, all_day?, duration_min?, notes?)  [standard, settles on return]\n       Put something on the calendar\n         date: string — YYYY-MM-DD\n         time: string — HH:MM, 24-hour\n         title: string\n         all_day?: boolean — A whole day rather than a time; `time` and `duration_min` are not used with it\n         duration_min?: number — How long it runs, in minutes; an hour when not given\n         notes?: string\n  act: delete_event(date?, id?, title?)  [sensitive, settles on return]\n       Take an event off the calendar. It is not recoverable\n         date?: string — YYYY-MM-DD, given with `title`\n         id?: string — The id the store gave the event — `add_event` answers with it and `describe` lists it for every event it shows\n         title?: string — The event's exact title, given with `date`, when the id is not known\n  act: update_event(id, date?, duration_min?, notes?, time?, title?)  [standard, settles on return]\n       Move or rename an event that is already on the calendar\n         id: string — The id the store gave the event\n         date?: string — Move it to this day, YYYY-MM-DD\n         duration_min?: number — How long it runs, in minutes; unchanged when not given\n         notes?: string\n         time?: string — Move it to this time, HH:MM\n         title?: string — A new title\n  act: set_view(view)  [standard, settles on return]\n       Switch between the month, week and day views\n         view: string — month | week | day",
+    "tokens": 882
+   }
+  ],
+  "note": "Every desktop call the mind made in the filmed take, with the exact text it sent and received. Only these are counted - not its reasoning, its system prompt, or Hermes's own non-desktop tools (it also read its skill file, ran `date`, and searched its memory: 3021 tokens that a screenshot-driven agent's harness would spend too)."
+ },
+ "minimal_run": {
+  "total": 1210,
+  "note": "With the Calendar already open the same task is three calls: os_apps, os_describe calendar, os_act add_event."
+ }
+}
