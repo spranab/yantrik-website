@@ -125,12 +125,12 @@ export default function Hero() {
               View on GitHub
             </motion.a>
             <motion.a
-              href="#features"
+              href="#download"
               className="px-8 py-3.5 glass text-zinc-300 hover:text-white rounded-xl font-medium transition-all hover:border-zinc-600"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              See what it can do
+              Download the ISO
             </motion.a>
           </div>
         </motion.div>
@@ -143,9 +143,9 @@ export default function Hero() {
           transition={{ delay: 0.6, duration: 0.6 }}
         >
           {[
-            { value: "16", label: "Built-in Apps" },
-            { value: "57", label: "Control Actions" },
-            { value: "10", label: "Control Surfaces" },
+            { value: "14", label: "Built-in Apps" },
+            { value: "155", label: "Control Actions" },
+            { value: "15", label: "Control Surfaces" },
             { value: "50", label: "Skills" },
           ].map((stat) => (
             <div key={stat.label} className="text-center">

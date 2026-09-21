@@ -42,6 +42,9 @@ export default function Navbar() {
           <a href="#demo" className="hover:text-white transition-colors">
             Demo
           </a>
+          <a href="#download" className="hover:text-white transition-colors">
+            Download
+          </a>
           <a
             href="https://discord.gg/7cDw3jd3Xf"
             target="_blank"

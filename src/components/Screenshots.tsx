@@ -6,49 +6,64 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const screenshots = [
   {
-    src: "/screenshots/desktop_greeting.png",
+    src: "/screenshots/desktop.png",
     title: "Desktop",
-    description: "Aurora wallpaper, personalized greeting, floating orb for the attached mind, dock along the bottom",
+    description: "The ask bar, your workspace, and the mind that is attached — Hermes Agent here — within reach",
   },
   {
-    src: "/screenshots/app_launcher.png",
-    title: "App Launcher",
-    description: "16 built-in apps with search — About, Bond, Email, Files, Memory, Notes, Network, and more",
+    src: "/screenshots/lens.png",
+    title: "The Lens",
+    description: "Ctrl K from the desktop, Super K from anywhere: open an app, ask the mind, or search the machine's memory in one field",
   },
   {
-    src: "/screenshots/skill_store.png",
-    title: "Skill Store",
-    description: "50 skills, shipped as files on the machine, each one toggleable from here",
+    src: "/screenshots/launcher.png",
+    title: "Launcher",
+    description: "Every app and system panel in one searchable grid, by category",
+  },
+  {
+    src: "/screenshots/notes.png",
+    title: "Notes",
+    description: "Markdown notes stored as files on the device — and the app the film's checklist was written into, through its control surface",
+  },
+  {
+    src: "/screenshots/email.png",
+    title: "Email",
+    description: "IMAP and SMTP with any provider, threads, attachments, and a Summarize that hands the thread to the attached mind (sample mailbox)",
+  },
+  {
+    src: "/screenshots/calendar.png",
+    title: "Calendar",
+    description: "Month, week and day. One calendar on the machine: the app and the mind read and write the same events",
   },
   {
     src: "/screenshots/files.png",
-    title: "File Browser",
-    description: "Places sidebar, icon-based file list with sizes and dates, navigate your entire filesystem",
+    title: "Files",
+    description: "Places, breadcrumbs, preview and a trash you can undo — every action also available to the mind, graded by risk",
   },
   {
     src: "/screenshots/terminal.png",
     title: "Terminal",
-    description: "Multi-tab terminal emulator with shell integration — run any command right from the desktop",
+    description: "Tabs and a real shell. The mind can run a command here only as far as the machine's permission ceiling allows",
   },
   {
-    src: "/screenshots/memory_browser.png",
-    title: "Memory Browser",
-    description: "Search the local memory server — the same store every attached mind reads and writes",
+    src: "/screenshots/editor.png",
+    title: "Editor",
+    description: "Tabs, find and replace, draft recovery after a crash",
+  },
+  {
+    src: "/screenshots/sysmonitor.png",
+    title: "System Monitor",
+    description: "CPU, memory, disk and network from the monitor service — and it says so when it is reading the machine directly instead",
+  },
+  {
+    src: "/screenshots/network.png",
+    title: "Network",
+    description: "What the machine actually has: this one has Ethernet, no Wi-Fi adapter and no firewall tool, and says exactly that",
   },
   {
     src: "/screenshots/settings.png",
-    title: "Display Settings",
-    description: "Dark/Light theme, 5 wallpapers, accent color, resolution — customize your desktop",
-  },
-  {
-    src: "/screenshots/text_editor.png",
-    title: "Text Editor",
-    description: "Built-in editor with Find, AI assistance, and Save — edit files without leaving the desktop",
-  },
-  {
-    src: "/screenshots/browser.png",
-    title: "Web Browser",
-    description: "Browse from the desktop, and let the attached mind drive the same window through its control surface",
+    title: "Settings",
+    description: "Appearance, AI and harnesses, privacy, accounts — preferences save as you change them",
   },
 ];
 
@@ -74,7 +89,7 @@ export default function Screenshots() {
             </span>
           </h2>
           <p className="mt-4 text-lg text-zinc-400">
-            A full desktop environment with 16 native apps. No Electron. Rust + Slint on Debian trixie.
+            A full desktop environment with 14 native apps. No Electron. Rust + Slint on Debian trixie.
           </p>
         </motion.div>
 

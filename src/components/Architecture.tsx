@@ -7,7 +7,7 @@ const layers = [
     name: "Desktop Shell",
     desc: "labwc on Wayland, Slint in Rust",
     color: "border-zinc-700",
-    items: ["16 native apps", "Debian trixie", "No Electron", "Window management"],
+    items: ["14 native apps", "Debian trixie", "No Electron", "Window management"],
   },
   {
     name: "Control Surface",

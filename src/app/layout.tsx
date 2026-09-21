@@ -13,7 +13,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const description =
-  "A Rust desktop built for a mind to use. 16 apps, each publishing a graded control surface and an accessibility tree. Any mind attaches over a socket — the OS never holds its model or its keys.";
+  "A Rust desktop built for a mind to use. 14 apps, each publishing a graded control surface and an accessibility tree. Any mind attaches over a socket — the OS never holds its model or its keys.";
 
 export const metadata: Metadata = {
   title: "Yantrik OS — The AI-Native Desktop",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: "Yantrik OS — The AI-Native Desktop",
     description,
     type: "website",
-    url: "https://yantrik.dev",
+    url: "https://www.yantrikos.com",
   },
   twitter: {
     card: "summary_large_image",
