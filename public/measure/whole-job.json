@@ -1,0 +1,52 @@
+{
+ "ask": "I'm giving a 10-minute talk on AI agents on Thursday 1 October at 3pm. Spin up a research agent for a quick look at what Hacker News says about agents today, then build my slides, book the talk and a rehearsal the day before in my calendar, and leave a speaker checklist in Notes. When it's all ready, start the slideshow.",
+ "steps": [
+  {
+   "src_t": 6.72,
+   "text": "Mind set to Auto",
+   "where": "by the person, before handing over"
+  },
+  {
+   "src_t": 56.19,
+   "text": "Research agent created",
+   "where": "a sub-agent with the same desktop tools"
+  },
+  {
+   "src_t": 57.19,
+   "text": "Reads Hacker News · 7 pages",
+   "where": "Browser — as text, not screenshots"
+  },
+  {
+   "src_t": 112.05,
+   "text": "Builds the deck · 7 slides",
+   "where": "Presentation"
+  },
+  {
+   "src_t": 138.16,
+   "text": "Books the talk and rehearsal",
+   "where": "Calendar — 2026-10-01, 2026-09-30"
+  },
+  {
+   "src_t": 140.7,
+   "text": "Writes the speaker checklist",
+   "where": "Notes"
+  },
+  {
+   "src_t": 155.07,
+   "text": "Starts the slideshow",
+   "where": "Presentation"
+  }
+ ],
+ "apps": [
+  "browser",
+  "calendar",
+  "notes",
+  "presentation"
+ ],
+ "desktop_calls": 46,
+ "pages": 7,
+ "slides": 7,
+ "real_seconds": 129,
+ "mind": "Hermes Agent 0.14.0 and the research sub-agent it created, deepseek-v4.1-flash via Ollama Cloud, desktop in Auto mode",
+ "note": "Step times are seconds into the recording, taken from Hermes's own log of when each tool call completed."
+}
