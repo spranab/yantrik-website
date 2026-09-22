@@ -52,7 +52,8 @@ export default function VideoDemo() {
             click, and taking another. On Yantrik OS every app tells the mind what it is, what it can
             do, and which of those things cannot be undone. The same task both ways on the same
             machine, then one sentence turned into a research agent, a slide deck, two calendar
-            entries and a checklist. Two minutes. Sound on.
+            entries and a checklist — then the same question to three different minds, and a model swapped
+            in one line. Two and a half minutes. Sound on.
           </p>
         </motion.div>
 
@@ -157,7 +158,8 @@ export default function VideoDemo() {
           spends <em>looking at the computer</em> is counted — not reasoning, not system prompts.
           Text is counted with the o200k tokenizer; a screenshot as width × height ÷ 750. The
           whole-job scene is one unedited take at the speeds marked; the approval, the mode menu
-          and the calendar reminder after it are real takes on the same machine. The music was synthesised for the film.{" "}
+          the calendar reminder and the mind-switching after it are real takes on the same machine (DeepSeek and Pi
+          run through the harnesses in the repo; Hermes’s model is changed with a one-line script). The music was synthesised for the film.{" "}
           <a href="/measure/calendar-task.json" className="text-zinc-300 underline underline-offset-4 hover:text-white">
             The raw calls and replies
           </a>
