@@ -52,7 +52,9 @@ export default function VideoDemo() {
             click, and taking another. On Yantrik OS every app tells the mind what it is, what it can
             do, and which of those things cannot be undone. The same task both ways on the same
             machine, then one sentence turned into a research agent, a slide deck, two calendar
-            entries and a checklist. Two minutes. Sound on.
+            entries and a checklist. Then the night shift: Auto mode on, and the one thing that
+            cannot be undone still stops at a card — and a script that claims to be the mind is
+            named by the kernel. Three and a half minutes. Sound on.
           </p>
         </motion.div>
 
