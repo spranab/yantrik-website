@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import YantrikMark from "./YantrikMark";
 
 export default function Footer() {
   return (
@@ -50,10 +51,10 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-zinc-600">
+          {/* Same mark as the navbar and the boot screen, not the indigo square that used
+              to stand in for it here. */}
           <div className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center">
-              <span className="text-white text-xs font-bold">Y</span>
-            </div>
+            <YantrikMark size={24} className="block" />
             <span>Yantrik OS</span>
           </div>
           <p>Built with Rust, love, and a concerning amount of caffeine.</p>

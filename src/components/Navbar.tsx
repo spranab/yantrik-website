@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import YantrikMark from "./YantrikMark";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -24,11 +25,14 @@ export default function Navbar() {
       transition={{ duration: 0.6 }}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Logo */}
+        {/* Logo — the product's actual mark.
+            This was an indigo-to-violet rounded square with an Inter "Y" in it: a logo
+            invented for the website, sharing nothing with the one the OS shows on its boot
+            screen. The glow follows the mark's own teal rather than indigo. */}
         <a href="#" className="flex items-center gap-2.5 group">
-          <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center group-hover:shadow-[0_0_20px_rgba(99,102,241,0.3)] transition-shadow">
-            <span className="text-white text-sm font-bold">Y</span>
-          </div>
+          <span className="rounded-full transition-shadow group-hover:shadow-[0_0_20px_rgba(47,212,196,0.35)]">
+            <YantrikMark size={32} className="block" />
+          </span>
           <span className="text-white font-semibold tracking-tight">
             Yantrik<span className="text-zinc-500 font-normal ml-1">OS</span>
           </span>
