@@ -53,7 +53,7 @@ export default function VideoDemo() {
             do, and which of those things cannot be undone. The same task both ways on the same
             machine, then one sentence turned into a research agent, a slide deck, two calendar
             entries and a checklist — then the same question to three different minds, and a model swapped
-            in one line. Two and a half minutes. Sound on.
+            in one line. Four minutes. Sound on.
           </p>
         </motion.div>
 
