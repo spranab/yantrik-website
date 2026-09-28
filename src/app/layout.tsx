@@ -66,6 +66,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
+      <head>
+        {/* Umami analytics (self-hosted at u.warpmode.io): cookieless page-view counts.
+            A plain deferred tag rather than next/script, so the exported HTML carries it
+            verbatim in <head> on every page. */}
+        <script
+          defer
+          src="https://u.warpmode.io/script.js"
+          data-website-id="72516f52-1afe-48f6-804d-d90ac321748e"
+        ></script>
+      </head>
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased`}
       >
