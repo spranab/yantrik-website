@@ -78,7 +78,7 @@ export default function OsPreview() {
           front="windows"
           mindView={{
             x: 0,
-            y: 102,
+            y: 80,
             ...nested,
             windows: [
               {
