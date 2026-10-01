@@ -63,7 +63,7 @@ const ground = (children: ReactNode, style?: CSSProperties) => (
 );
 
 const onWallpaper = (children: ReactNode, w: number, h: number, pad = 16) => (
-  <div className="y-os" style={{ width: w, height: h, padding: pad, background: "var(--y-bg-deep) url(/os/wallpapers/serenity.png) center / cover" }}>{children}</div>
+  <div className="y-os" style={{ width: w, height: h, padding: pad, background: "linear-gradient(var(--y-os-wallpaper-wash), var(--y-os-wallpaper-wash)), var(--y-bg-deep) url(/os/wallpapers/serenity.png) center / cover" }}>{children}</div>
 );
 
 export default function OsPreview() {

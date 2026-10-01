@@ -1,5 +1,5 @@
 import { ToolCallCard } from "./ToolCallCard";
-import { ring, text, v, wrap } from "./css";
+import { ring, text, TEXT_ACCENT, TEXT_AMBER, v, wrap } from "./css";
 import type { ContentBlock, MessageData } from "./types";
 
 /**
@@ -28,11 +28,11 @@ export function MessageBubble({ data, expandCalls = false }: { data: MessageData
     <div style={{ display: "flex", alignItems: "flex-start", gap: 10, padding: "4px 40px 4px 16px" }}>
       <span style={{ width: 8, height: 8, borderRadius: 4, marginTop: 7, flex: "none", background: isDesktop ? v("amber") : v("cyan") }} />
       <div style={{ flex: "1 1 0", minWidth: 0, display: "flex", flexDirection: "column", gap: 4 }}>
-        {isDesktop ? <span style={text(v("font-small"), 600, v("amber-light"))}>From the desktop</span> : null}
+        {isDesktop ? <span style={text(v("font-small"), 600, TEXT_AMBER)}>From the desktop</span> : null}
         {!hasBlocks ? <div style={{ ...text(v("font-body")), ...wrap }}>{data.content}</div> : null}
         {hasBlocks ? blocks.map((b, i) => <Block key={i} block={b} expandCalls={expandCalls} />) : null}
         {data.run && !data.isStreaming ? (
-          <span style={{ ...text(v("font-small"), 600, v("cyan-light")), paddingTop: 4 }}>
+          <span style={{ ...text(v("font-small"), 600, TEXT_ACCENT), paddingTop: 4 }}>
             {data.run === "private:leave" ? "Leave Private mode →" : "Open the run →"}
           </span>
         ) : null}
@@ -46,13 +46,13 @@ function Block({ block, expandCalls }: { block: ContentBlock; expandCalls: boole
   if (block.blockType === "code") {
     return (
       <div style={{ background: v("bg-card"), borderRadius: 6, boxShadow: ring(v("border-subtle")), padding: "8px 10px" }}>
-        <div style={{ ...text(v("font-small"), 400, v("cyan-light")), ...wrap }}>{block.text}</div>
+        <div style={{ ...text(v("font-small"), 400, TEXT_ACCENT), ...wrap }}>{block.text}</div>
       </div>
     );
   }
   const heading = block.blockType === "heading";
   return (
-    <div style={{ paddingLeft: block.blockType === "bullet" ? 8 : 0, ...text(heading ? v("font-title") : v("font-body"), heading ? 600 : 400, heading ? v("amber-light") : v("text-primary")), ...wrap }}>
+    <div style={{ paddingLeft: block.blockType === "bullet" ? 8 : 0, ...text(heading ? v("font-title") : v("font-body"), heading ? 600 : 400, heading ? TEXT_AMBER : v("text-primary")), ...wrap }}>
       {block.text}
     </div>
   );

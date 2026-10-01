@@ -7,6 +7,15 @@ import type { CSSProperties } from "react";
 export const v = (token: string) => `var(--y-${token})`;
 
 /**
+ * Text the OS draws in `accent-light` / `cyan-light` (the same colour at the default preset) or in
+ * `amber-light`. Those are the tokens in dark; in light they are pale tints (2.5:1 and 3.5:1 on the
+ * ground), so the replica's text takes `accent` and `amber` there instead (src/theme/theme.css).
+ * Marks and fills keep the OS's own token.
+ */
+export const TEXT_ACCENT = "var(--s-text-accent)";
+export const TEXT_AMBER = "var(--s-text-amber)";
+
+/**
  * Slint's `transparentize(p)` keeps (1 − p) of a colour's alpha; `with-alpha(a)` on an opaque
  * colour is the same thing. `alpha("bg-deep", 91)` is `Theme.bg-deep.transparentize(9%)`.
  */
