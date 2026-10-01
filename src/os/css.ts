@@ -19,8 +19,8 @@ export const TEXT_AMBER = "var(--s-text-amber)";
  * Slint's `transparentize(p)` keeps (1 − p) of a colour's alpha; `with-alpha(a)` on an opaque
  * colour is the same thing. `alpha("bg-deep", 91)` is `Theme.bg-deep.transparentize(9%)`.
  */
-export const alpha = (token: string, keepPercent: number) =>
-  `color-mix(in srgb, var(--y-${token}) ${keepPercent}%, transparent)`;
+export const alpha = (token: string, keepPercent: number | string) =>
+  `color-mix(in srgb, var(--y-${token}) ${typeof keepPercent === "number" ? `${keepPercent}%` : keepPercent}, transparent)`;
 
 /**
  * A Slint `border-width`/`border-color`. Slint draws the border inside the rectangle and does not
