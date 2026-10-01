@@ -85,7 +85,7 @@ export function AppsSection() {
             </figcaption>
           </figure>
           <figure className="s-figure">
-            <Terminal title="os_describe calendar" meta="recorded 21 Sep 2026">
+            <Terminal title="os_describe calendar" meta="recorded 21 Sep 2026" nowrap label="Calendar's reply to os_describe, recorded 21 Sep 2026">
               {r.shown.map((line, i) =>
                 line.trimStart().startsWith("act: ") ? (
                   <span key={i}>

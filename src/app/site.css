@@ -343,6 +343,16 @@
     padding-top: 0;
   }
 }
+/* Beside a tall artefact (the docs tree, a long reply) the words would end a screen early and leave
+   a hole under them; on a wide screen they stay in view while the artefact scrolls past. */
+@media (min-width: 1024px) {
+  .s-sec-grid[data-layout="split"] .s-sec-text,
+  .apps-art > :first-child {
+    position: sticky;
+    top: 96px;
+    align-self: start;
+  }
+}
 .s-sec-head .s-h2 {
   margin-bottom: var(--y-sp-5);
 }
@@ -735,7 +745,16 @@
   gap: var(--y-sp-8);
 }
 .sec-art-grid .dt-fig {
-  max-width: 820px;
+  max-width: none;
+}
+/* The grade columns share the width evenly, so the table spans the frame like every pane below it
+   instead of stopping two thirds of the way across. */
+.dt {
+  width: 100%;
+  table-layout: fixed;
+}
+.dt th[scope="col"]:first-child {
+  width: 22%;
 }
 .dt-pane {
   padding: var(--y-sp-4) var(--y-sp-2) var(--y-sp-2);
@@ -765,7 +784,8 @@
 /* The colours mean what they mean on the desktop: amber is a card waiting for you, red is refused. */
 .dt td[data-cell="ask"] {
   color: var(--y-amber-light);
-  box-shadow: inset 0 -1px 0 var(--y-separator), inset 3px 0 0 var(--y-amber);
+  /* A wash of the card's own amber, light enough that the word stays the thing you read. */
+  background: color-mix(in srgb, var(--y-amber) 10%, transparent);
 }
 .dt td[data-cell="refuse"] {
   color: var(--y-color-danger);
@@ -780,8 +800,7 @@
 }
 @media (max-width: 639px) {
   .dt[data-stack] td[data-cell="ask"] {
-    box-shadow: inset 3px 0 0 var(--y-amber);
-    padding-left: 10px;
+    border-radius: var(--y-r-sm);
   }
 }
 
