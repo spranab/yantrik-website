@@ -1,0 +1,27 @@
+# sh install.sh (yantrik-os install.sh at 36d5cd20), run 2026-10-01T21:26:15Z from a Windows 11 machine's Git Bash, stdout not a terminal so no colour. Unedited below this line.
+
+Yantrik OS ships as a live ISO — a Debian 13 image you boot and try before you
+install anything. There is no package to add to a system you already have.
+
+Asking https://iso.yantrikos.com/nightly/latest.json …
+
+  version   v0.1.0-1067  (built 2026-10-01)
+  file      yantrik-os-v0.1.0-1067-gdb55044.iso
+  size      1.63 GiB  (1748850688 bytes)
+  sha256    445b75c9d199209501bee8cbddf211ff38fcd4de4542537c83013024df2ec611
+  url       https://iso.yantrikos.com/nightly/yantrik-os-v0.1.0-1067-gdb55044.iso
+
+This is the nightly channel, and it is the only one that has ever had a build
+published to it. It is early software: things break, and the audits of what does not
+work are public in the repository under design/.
+
+To fetch it here and check it:
+
+  sh install.sh --download
+
+or download it yourself and verify before you boot it:
+
+  curl -fL -O https://iso.yantrikos.com/nightly/yantrik-os-v0.1.0-1067-gdb55044.iso
+  curl -fL -O https://iso.yantrikos.com/nightly/yantrik-os-v0.1.0-1067-gdb55044.iso.sha256
+  sha256sum -c yantrik-os-v0.1.0-1067-gdb55044.iso.sha256
+

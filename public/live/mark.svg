@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="Yantrik OS">
+  <title>Yantrik OS</title>
+  <!--
+    The mark, drawn exactly as crates/yantrik-ui-slint/ui/components/yantrik_mark.slint draws it
+    at mark-size: 128px. Every number below is that file's arithmetic carried out once:
+    a Slint Rectangle of side S with border-radius S/2 is a circle of radius S/2, and a Slint
+    Path with a viewbox is fitted with ImageFit.Contain into (width - stroke-width,
+    height - stroke-width), then offset by stroke-width/2.
+
+    No text, no external fonts, no gradients. See brand/README.md.
+  -->
+
+  <!-- The lit rim, by subtraction: a teal disc, a violet disc offset down-right over it,
+       and the dark sphere over the middle. What survives is a ring, teal on the upper-left
+       shoulder and violet on the lower-right. -->
+  <circle cx="64" cy="64" r="64" fill="#2fd4c4"/>
+  <circle cx="65.28" cy="65.28" r="62.72" fill="#8b5cf6"/>
+  <circle cx="64" cy="64" r="60.16" fill="#0d1420"/>
+
+  <!-- Inside the glass. Barely there: one hint that the sphere is round and not a hole.
+       Slint's #2fd4c40c / #8b5cf60c is alpha 0x0c = 12/255. -->
+  <circle cx="52.48" cy="49.92" r="39.68" fill="#2fd4c4" fill-opacity="0.047059"/>
+  <circle cx="87.04" cy="92.16" r="28.16" fill="#8b5cf6" fill-opacity="0.047059"/>
+
+  <!-- The Y: three strokes meeting off-centre at (64, 61.472). Butt caps, as Slint defaults. -->
+  <g fill="none" stroke-width="3.2" stroke-linecap="butt">
+    <path d="M41.248 41.248L64 61.472" stroke="#2fd4c4"/>
+    <path d="M86.752 41.248L64 61.472" stroke="#5eb8ff"/>
+    <path d="M64 61.472L64 86.752" stroke="#3fc9ea"/>
+  </g>
+</svg>
