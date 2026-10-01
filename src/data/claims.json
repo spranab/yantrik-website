@@ -41,6 +41,7 @@
     { "id": "C-38", "text": "On the live image the user is yantrik with the password yantrik and passwordless sudo. SSH is installed and turned off.", "source": "docs/getting-started.md", "checked": "2026-10-01" },
     { "id": "C-39", "text": "The status bar names the mind that is answering, and whether it is local or cloud.", "source": "docs/getting-started.md", "also": ["crates/yantrik-ui-slint/ui/components/status_bar.slint"], "checked": "2026-10-01" },
     { "id": "C-40", "text": "In ask, the default, a sensitive or dangerous action puts a card in front of you. Auto asks only about dangerous ones. Plan refuses every change.", "source": "design/mind-modes-2026-09-21.md", "also": ["docs/getting-started.md"], "checked": "2026-10-01" },
-    { "id": "C-41", "text": "The grade belongs to the action and is set in the app’s own code: in Notes, opening a note is standard and exporting one to a file is sensitive.", "source": "apps/notes/src/main.rs", "also": ["docs/app-control.md"], "checked": "2026-10-01" }
+    { "id": "C-41", "text": "The grade belongs to the action and is set in the app’s own code: in Notes, opening a note is standard and exporting one to a file is sensitive.", "source": "apps/notes/src/main.rs", "also": ["docs/app-control.md"], "checked": "2026-10-01" },
+    { "id": "C-42", "text": "The live machine holds no one’s personal data, and nothing you do on its page reaches it: the page only watches.", "source": "deploy/live/relay/www/index.html", "also": ["deploy/live/publisher/publish"], "checked": "2026-10-01", "limit": "The source is the page this site’s /live replaces; when the OS repository removes it, this claim moves to the publisher." }
   ]
 }

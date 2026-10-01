@@ -1,0 +1,6 @@
+hls.light.min.js is hls.js 1.6.15 (https://github.com/video-dev/hls.js), Apache License 2.0,
+copied unmodified from https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.6.15/hls.light.min.js on
+2026-10-01. Its sha512 is the one the page's integrity attribute names, and the one the previous
+page in yantrik-os (deploy/live/relay/www/index.html) pinned:
+sha512-+s5Bl3QE0s/yJwRQ5TJLHFBaOQ133gm4y4zw6yzlZhVlQnX0zDuSD+vnW1J2Le0ZViiVspejpPfHX6YdBjHoNg==
+It is served from this origin so the page's CSP can keep script-src 'self' with no exception.
