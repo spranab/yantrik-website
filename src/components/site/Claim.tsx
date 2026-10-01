@@ -21,23 +21,25 @@ export function Source({ paths, checked, children }: { paths: string[]; checked?
  * One sentence from the claims register (src/data/claims.json), rendered with its limit beside it
  * and its source under it, so the words and where they come from cannot drift apart.
  */
-export function Claim({ id, as = "p" }: { id: string; as?: "p" | "li" }) {
+export function Claim({ id, as = "p", quiet = false }: { id: string; as?: "p" | "li"; quiet?: boolean }) {
   const c = claim(id);
   const Tag = as;
   return (
     <Tag className="s-claim" data-claim={c.id}>
       <span className="s-claim-text">{c.text}</span>
       {c.limit ? <span className="s-limit">{c.limit}</span> : null}
-      <Source paths={[c.source, ...(c.also ?? [])]} />
+      {/* `quiet`: the claim is still checked at build against its source, but the page does not
+          print the path. For the live machine, whose deploy files are not a map to hand out. */}
+      {quiet ? null : <Source paths={[c.source, ...(c.also ?? [])]} />}
     </Tag>
   );
 }
 
-export function Claims({ ids }: { ids: string[] }) {
+export function Claims({ ids, quiet = false }: { ids: string[]; quiet?: boolean }) {
   return (
     <ul className="s-claims">
       {ids.map((id) => (
-        <Claim key={id} id={id} as="li" />
+        <Claim key={id} id={id} as="li" quiet={quiet} />
       ))}
     </ul>
   );
