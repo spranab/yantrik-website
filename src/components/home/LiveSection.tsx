@@ -71,7 +71,7 @@ export function LiveSection() {
           its own, with a mind attached. You watch; nothing you do there reaches it.
         </p>
       </div>
-      <Claims ids={["C-24", "C-27", "C-28"]} />
+      <Claims ids={["C-24", "C-27"]} />
     </Section>
   );
 }
