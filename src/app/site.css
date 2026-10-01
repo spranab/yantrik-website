@@ -917,3 +917,153 @@
   font-size: var(--y-fs-body);
   color: var(--y-text-dim);
 }
+
+/* ── /download ─────────────────────────────────────────────────────────────────────────── */
+.dl-top {
+  padding-top: 72px;
+  padding-bottom: 56px;
+}
+.dl-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+  gap: var(--y-sp-6);
+  align-items: start;
+  padding-bottom: 120px;
+}
+.dl-index {
+  position: sticky;
+  top: 76px;
+}
+.dl-index ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  box-shadow: inset 1px 0 0 var(--y-separator);
+}
+.dl-index a {
+  display: flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 var(--y-sp-4);
+  color: var(--y-text-secondary);
+  text-decoration: none;
+  font-size: var(--y-fs-body);
+}
+.dl-index a:hover {
+  color: var(--y-text-primary);
+  box-shadow: inset 2px 0 0 var(--y-accent);
+}
+@media (max-width: 1023px) {
+  .dl-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .dl-index {
+    position: static;
+  }
+  .dl-index ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 var(--y-sp-2);
+    box-shadow: none;
+  }
+  .dl-index a {
+    min-height: var(--y-touch-target);
+    padding: 0 var(--y-sp-3);
+    border-radius: var(--y-r-sm);
+    background: var(--y-hover-fill);
+    margin-bottom: var(--y-sp-2);
+  }
+  .dl-index a:hover {
+    box-shadow: none;
+  }
+}
+.dl-body {
+  min-width: 0;
+  max-width: 860px;
+}
+.dl-step {
+  padding: 0 0 72px;
+  scroll-margin-top: 72px;
+}
+.dl-step + .dl-step {
+  padding-top: 56px;
+  box-shadow: inset 0 1px 0 var(--y-separator);
+}
+.dl-h2 {
+  max-width: none;
+  margin-bottom: var(--y-sp-5);
+}
+.dl-claims {
+  margin-top: var(--y-sp-5);
+}
+.dl-gap {
+  margin-top: var(--y-sp-6);
+}
+.dl-gap-s {
+  margin-top: var(--y-sp-3);
+}
+.dl-step .s-term + .s-src {
+  margin-top: var(--y-sp-2);
+}
+.dl-table-pane {
+  margin-top: var(--y-sp-6);
+  padding: var(--y-sp-4) var(--y-sp-2) var(--y-sp-2);
+}
+.dl-caption {
+  caption-side: top;
+  text-align: left;
+  padding: 0 var(--y-sp-3) var(--y-sp-3);
+  font-size: var(--y-fs-title-2);
+  font-weight: 600;
+  color: var(--y-text-primary);
+}
+.hw tr[data-row="label"] td {
+  font-size: var(--y-fs-caption);
+  color: var(--y-text-dim);
+}
+.dl-warn {
+  padding: var(--y-sp-4);
+  border-radius: var(--y-r-lg);
+  background: var(--y-color-danger-dim);
+  box-shadow: inset 3px 0 0 var(--y-color-danger);
+}
+.dl-warn .s-claim-text {
+  color: var(--y-text-primary);
+}
+.dl-notmeasured {
+  margin-top: var(--y-sp-6);
+  padding: var(--y-sp-4);
+  border-radius: var(--y-r-lg);
+  box-shadow: inset 0 0 0 1px var(--y-border-default);
+}
+.dl-notmeasured .s-h3 {
+  margin-bottom: var(--y-sp-2);
+}
+
+/* Machine text is drawn as typed: JetBrains Mono's and Barlow's ligatures would turn `--download`
+   into a dash and `->` into an arrow the command does not contain. */
+body,
+code,
+pre,
+.mono,
+.s-term,
+.s-code,
+.s-route,
+.s-release-dl,
+.docs-group {
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "calt" 0;
+}
+@media (max-width: 639px) {
+  .s-table[data-stack] caption {
+    display: block;
+    width: 100%;
+    padding-left: 0;
+  }
+  .dl-table-pane {
+    padding: var(--y-sp-4);
+  }
+}
+.s-more > span[aria-hidden] {
+  margin-left: var(--y-sp-2);
+}
