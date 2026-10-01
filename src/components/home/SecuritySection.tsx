@@ -91,7 +91,7 @@ export function SecuritySection() {
             </figcaption>
           </figure>
           <figure className="s-figure">
-            <Terminal title="apps/notes/src/main.rs" meta="lines 1700–1708">
+            <Terminal title="apps/notes/src/main.rs" meta="lines 1700–1708" nowrap label="The export action in apps/notes/src/main.rs">
               {EXPORT}
             </Terminal>
             <figcaption>
