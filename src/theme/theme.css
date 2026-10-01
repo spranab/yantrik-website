@@ -1,0 +1,82 @@
+/* The site's light and dark, shared by the app (globals.css imports it) and /live (copied to
+   public/live/theme.css by scripts/sync-live.mjs). Every colour is an OS token from tokens.css;
+   what changes per mode here is only which token a role uses.
+
+   Dark is the OS's palette as the site has always used it. In light, the OS's `accent-light` and
+   `amber-light` are pale tints (#3aa9b4 is 2.5:1 on bg-deep, #a07840 is 3.5:1), made for marks and
+   fills, so text that wears them in dark wears `accent` (4.9:1) and `amber` (4.9:1) instead. The
+   page's ground is the mark's own #0b0d12 in dark (brand/README.md) and the OS's bg-deep in light. */
+:root {
+  --s-ground: #0b0d12;
+  --s-text-accent: var(--y-accent-light);
+  --s-text-amber: var(--y-amber-light);
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --s-ground: var(--y-bg-deep);
+    --s-text-accent: var(--y-accent);
+    --s-text-amber: var(--y-amber);
+  }
+}
+:root[data-theme="light"] {
+  --s-ground: var(--y-bg-deep);
+  --s-text-accent: var(--y-accent);
+  --s-text-amber: var(--y-amber);
+}
+
+/* ── The toggle: System → Light → Dark (src/theme/theme-boot.js) ──────────────────────────
+   Its accessible name is its text, "Theme: <current>": the two labels not current are
+   display:none, which takes them out of the name as well as off the screen. Without script there
+   is nothing to cycle it, so it is not shown. */
+.y-theme {
+  appearance: none;
+  border: none;
+  margin: 0;
+  font: inherit;
+  font-size: var(--y-fs-body);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: var(--y-touch-target);
+  min-width: var(--y-touch-target);
+  padding: 0 var(--y-sp-3);
+  border-radius: var(--y-r-sm);
+  background: transparent;
+  color: var(--y-text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color var(--y-dur-fast) ease-out, color var(--y-dur-fast) ease-out;
+}
+.y-theme:hover {
+  background: var(--y-hover-fill);
+  color: var(--y-text-primary);
+}
+/* A half-filled disc: the conventional mark for "appearance". */
+.y-theme-mark {
+  width: 14px;
+  height: 14px;
+  border-radius: 7px;
+  flex: none;
+  box-shadow: inset 0 0 0 1.5px currentColor;
+  background: linear-gradient(90deg, currentColor 50%, transparent 50%);
+}
+.y-theme-k {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.y-theme [data-theme-label] {
+  display: none;
+}
+:root:not([data-theme-choice]) .y-theme {
+  display: none;
+}
+:root[data-theme-choice="system"] .y-theme [data-theme-label="system"],
+:root[data-theme-choice="light"] .y-theme [data-theme-label="light"],
+:root[data-theme-choice="dark"] .y-theme [data-theme-label="dark"] {
+  display: inline;
+}

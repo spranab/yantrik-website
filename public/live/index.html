@@ -5,13 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Yantrik Live · Yantrik OS</title>
 <meta name="description" content="A Yantrik OS machine at work on its own, in public, at three frames a second. View-only: nothing you do here reaches it.">
-<meta name="color-scheme" content="dark">
+<meta name="color-scheme" content="dark light">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/live/mark.svg" type="image/svg+xml">
 <!-- Framework-free on purpose (design/decisions.md): this page runs under its own strict CSP, with
      script-src 'self' and no exception. It shares the site's tokens and the OS's typefaces,
-     copied beside it at build by scripts/sync-live.mjs. No inline style, no inline script. -->
+     copied beside it at build by scripts/sync-live.mjs. No inline style, no inline script.
+     theme.js is the site's theme boot (src/theme/theme-boot.js), loaded blocking so the page paints
+     in the visitor's theme the first time. -->
+<script src="/live/theme.js"></script>
 <link rel="stylesheet" href="/live/tokens.css">
+<link rel="stylesheet" href="/live/theme.css">
 <link rel="stylesheet" href="/live/live.css">
 </head>
 <body>
@@ -28,6 +32,7 @@
       <a href="/apps">Apps</a>
       <a href="/docs">Docs</a>
       <a class="ext" href="https://github.com/yantrikos/yantrik-os" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+      <button type="button" class="y-theme" data-theme-toggle=""><span class="y-theme-mark" aria-hidden="true"></span><span class="y-theme-k">Theme: </span><span data-theme-label="system">System</span><span data-theme-label="light">Light</span><span data-theme-label="dark">Dark</span></button>
     </nav>
     <details class="menu">
       <summary>Menu</summary>
@@ -39,6 +44,7 @@
         <a href="/apps">Apps</a>
         <a href="/docs">Docs</a>
         <a class="ext" href="https://github.com/yantrikos/yantrik-os" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+        <button type="button" class="y-theme" data-theme-toggle=""><span class="y-theme-mark" aria-hidden="true"></span><span class="y-theme-k">Theme: </span><span data-theme-label="system">System</span><span data-theme-label="light">Light</span><span data-theme-label="dark">Dark</span></button>
       </nav>
     </details>
   </div>

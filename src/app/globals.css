@@ -1,12 +1,14 @@
 @import "tailwindcss";
 /* Every colour, size, radius and duration comes from the OS (scripts/gen-tokens.mjs). */
 @import "../os/tokens.css";
+/* Which token each role uses in light and in dark, the page's ground, and the theme toggle. */
+@import "../theme/theme.css";
 
 @theme inline {
   --font-sans: var(--font-barlow), system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 
-  --color-ground: #0b0d12; /* the mark's ground, brand/README.md */
+  --color-ground: var(--s-ground); /* the mark's ground in dark, brand/README.md; bg-deep in light */
   --color-deep: var(--y-bg-deep);
   --color-surface: var(--y-bg-surface);
   --color-card: var(--y-bg-card);
@@ -29,16 +31,13 @@
   --radius-xl: var(--y-r-xl);
 }
 
-:root {
-  color-scheme: dark;
-}
-
+/* color-scheme is set per mode in tokens.css. */
 html {
-  background: #0b0d12;
+  background: var(--s-ground);
 }
 
 body {
-  background: #0b0d12;
+  background: var(--s-ground);
   color: var(--y-text-primary);
   font-family: var(--font-barlow), system-ui, sans-serif;
   font-size: 16px;

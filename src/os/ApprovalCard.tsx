@@ -1,5 +1,5 @@
 import type { CSSProperties, ReactNode } from "react";
-import { elide, ring, text, v, wrap } from "./css";
+import { elide, ring, text, TEXT_AMBER, v, wrap } from "./css";
 import type { ApprovalRequest } from "./types";
 
 export type ApprovalCardProps = {
@@ -184,7 +184,7 @@ export function ApprovalCard({ data, onDeny, onAllow, purposeOverflows, purposeO
             <span style={text(v("fs-body-strong"))}>Deny</span>
           </button>
           <button type="button" onClick={onAllow} style={{ ...button, background: "transparent", boxShadow: ring(v("amber")) }}>
-            <span style={text(v("fs-body-strong"), 400, v("amber-light"))}>Allow once</span>
+            <span style={text(v("fs-body-strong"), 400, TEXT_AMBER)}>Allow once</span>
           </button>
         </div>
         {data.canSession ? (

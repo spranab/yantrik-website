@@ -1,4 +1,4 @@
-import { elide, mono, ring, text, v } from "./css";
+import { elide, mono, ring, text, TEXT_ACCENT, TEXT_AMBER, v } from "./css";
 import type { ToolCallData } from "./types";
 
 /** A mono Text with `wrap: word-wrap`. */
@@ -18,10 +18,10 @@ export function ToolCallCard({ call, badge = "", expanded = false }: { call: Too
     <div style={{ background: v("bg-card"), borderRadius: 6, boxShadow: ring(v("border-subtle")), padding: "6px 10px", display: "flex", flexDirection: "column", gap: 4 }}>
       <div style={{ display: "flex", alignItems: expanded ? "flex-start" : "center", gap: 8 }}>
         <span style={text(v("font-small"), 400, v("text-dim"))}>⚙</span>
-        <span style={{ ...mono(12, v("cyan-light")), ...(expanded ? wrapMono : elide), flex: "1 1 0" }}>{call.summary || call.name}</span>
+        <span style={{ ...mono(12, TEXT_ACCENT), ...(expanded ? wrapMono : elide), flex: "1 1 0" }}>{call.summary || call.name}</span>
         {badge ? <span style={text(v("font-caption"), 400, v("text-dim"))}>{badge}</span> : null}
         {status ? (
-          <span style={text(v("font-caption"), 400, status === "failed" ? v("color-danger") : status === "done" ? v("color-success") : v("amber-light"))}>
+          <span style={text(v("font-caption"), 400, status === "failed" ? v("color-danger") : status === "done" ? v("color-success") : TEXT_AMBER)}>
             {status}
           </span>
         ) : null}

@@ -7,6 +7,7 @@ import { YantrikMark } from "@/os/YantrikMark";
 import { Icon } from "@/os/Icon";
 import { LiveDot } from "./LivePill";
 import { OS_REPO } from "@/lib/os-repo";
+import { ThemeToggle } from "./ThemeToggle";
 
 // Live · Download · Minds · Security · Apps · Docs · GitHub (design/redesign-plan-2026-10-01.md).
 // /live is a framework-free page outside the app, so it is a plain link, never a client route.
@@ -23,7 +24,7 @@ const NAV = [
  * The site's header, in the status bar's grammar: the mark and "Yantrik" on the left, the pages
  * on the right, the current one drawn as the taskbar draws its active window. Below 900px the
  * pages fold behind a Menu button (a disclosure: aria-expanded, Escape closes, focus returns),
- * every target 44px or more.
+ * every target 44px or more. The theme toggle is the last item, in the row and in the menu.
  */
 export function SiteHeader() {
   const path = usePathname() ?? "/";
@@ -83,6 +84,7 @@ export function SiteHeader() {
             GitHub
             <span aria-hidden="true">↗</span>
           </a>
+          <ThemeToggle />
         </nav>
       </div>
     </header>

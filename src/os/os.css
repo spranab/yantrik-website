@@ -24,3 +24,28 @@
   outline: 2px solid var(--y-accent);
   outline-offset: 2px;
 }
+
+/* Values the OS writes at the component rather than in theme.slint, in both modes:
+   - the hairline on a coloured app tile, ThemeMode.dark ? #ffffff30 : #00000024
+     (crates/yantrik-ui-kit/slint/app_tile.slint:54);
+   - the wash the desktop lays over the wallpaper in light mode, #f3f5f8b0, and nothing in dark
+     (crates/yantrik-ui-slint/ui/desktop.slint:333);
+   - how much of an app's colour its badge tint keeps, transparentize(ThemeMode.dark ? 0.86 : 0.90)
+     (crates/yantrik-ui-kit/slint/app_color.slint, tint-for-app). */
+:root {
+  --y-os-tile-rim: #ffffff30;
+  --y-os-wallpaper-wash: transparent;
+  --y-os-app-tint-keep: 14%;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --y-os-tile-rim: #00000024;
+    --y-os-wallpaper-wash: #f3f5f8b0;
+    --y-os-app-tint-keep: 10%;
+  }
+}
+:root[data-theme="light"] {
+  --y-os-tile-rim: #00000024;
+  --y-os-wallpaper-wash: #f3f5f8b0;
+  --y-os-app-tint-keep: 10%;
+}
