@@ -93,13 +93,24 @@ samp,
 }
 
 /* The OS's one moving thing: the thinking dot, stepped at 5 fps, only while a mind is thinking
-   (status_bar.slint). Nothing else on this site animates continuously. */
+   (status_bar.slint ~151–176). Nothing else on this site animates continuously.
+   Exactly the OS's: opacity = 0.55 + 0.45·sin(phase·2π), the phase stepped 0.1 every 200ms, so
+   ten held values in a two-second cycle, each keyframe below one of them. */
 @keyframes y-thinking {
-  from { opacity: 0.55; }
-  to { opacity: 1; }
+  0% { opacity: 0.55; }
+  10% { opacity: 0.8145; }
+  20% { opacity: 0.978; }
+  30% { opacity: 0.978; }
+  40% { opacity: 0.8145; }
+  50% { opacity: 0.55; }
+  60% { opacity: 0.2855; }
+  70% { opacity: 0.122; }
+  80% { opacity: 0.122; }
+  90% { opacity: 0.2855; }
+  100% { opacity: 0.55; }
 }
 .y-thinking {
-  animation: y-thinking 1s steps(10) infinite alternate;
+  animation: y-thinking 2s step-end infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

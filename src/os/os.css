@@ -1,0 +1,26 @@
+/* The replica's base (src/os): the OS's own text metrics and nothing else.
+   Slint lays a line at the font's ascent + descent, which for Barlow is 1.2 em; it has no
+   synthetic bold, and draws numbers proportional, as the face does by default. */
+.y-os {
+  font-family: var(--font-barlow), system-ui, sans-serif;
+  line-height: 1.2;
+  font-synthesis: none;
+  font-variant-numeric: normal;
+  color: var(--y-text-primary);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+  user-select: none;
+}
+.y-os *,
+.y-os *::before,
+.y-os *::after {
+  box-sizing: border-box;
+}
+.y-os .y-os-field::placeholder {
+  color: var(--y-text-dim);
+  opacity: 1;
+}
+.y-os button:focus-visible {
+  outline: 2px solid var(--y-accent);
+  outline-offset: 2px;
+}
