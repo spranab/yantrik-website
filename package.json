@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "check:claims": "node scripts/check-claims.mjs",
+    "prebuild": "node scripts/check-claims.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.35.1",
