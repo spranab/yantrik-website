@@ -13,6 +13,14 @@ const copies = [
   ["crates/yantrik-design-tokens/slint/fonts/JetBrainsMono-Regular.ttf", "src/fonts/JetBrainsMono-Regular.ttf"],
   ["crates/yantrik-design-tokens/slint/fonts/JetBrainsMono-Medium.ttf", "src/fonts/JetBrainsMono-Medium.ttf"],
   ["brand/yantrik-mark.svg", "public/brand/yantrik-mark.svg"],
+  // The desktop replica (src/os): the default wallpaper preset (app_context.rs sets "serenity"),
+  // the titlebar buttons labwc draws from the theme directory (scripts/render-window-buttons.py,
+  // installed by yantrik-session), and the picture Mind View shows while it is empty.
+  ["crates/yantrik-ui-slint/ui/wallpapers/serenity.png", "public/os/wallpapers/serenity.png"],
+  ["config/labwc-mind/empty.png", "public/os/labwc-mind/empty.png"],
+  ...["iconify", "max", "max_toggled", "close"].flatMap((b) =>
+    ["active", "inactive"].map((s) => [`config/labwc/${b}-${s}.png`, `public/os/labwc/${b}-${s}.png`]),
+  ),
 ];
 
 let missing = 0;
