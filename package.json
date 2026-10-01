@@ -8,7 +8,10 @@
     "start": "next start",
     "lint": "eslint",
     "check:claims": "node scripts/check-claims.mjs",
-    "prebuild": "node scripts/check-claims.mjs"
+    "prebuild": "node scripts/gen-tokens.mjs && node scripts/sync-os-assets.mjs && node scripts/check-claims.mjs",
+    "os:tokens": "node scripts/gen-tokens.mjs",
+    "os:assets": "node scripts/sync-os-assets.mjs",
+    "predev": "node scripts/gen-tokens.mjs && node scripts/sync-os-assets.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.35.1",
