@@ -42,8 +42,9 @@ export function AppTile({ appId, glyph, iconSrc, size = 44, hovered = false, dim
         flex: "none",
         borderRadius: size * 0.26,
         background: fill,
-        // The hairline: a light rim on a coloured tile in the dark theme (app_tile.slint:54).
-        boxShadow: ring(coloured ? "#ffffff30" /* app_tile.slint:54 */ : v("border-card")),
+        // The hairline: a light rim on a coloured tile in dark, a faint dark one in light
+        // (app_tile.slint:54, as --y-os-tile-rim in os.css).
+        boxShadow: ring(coloured ? "var(--y-os-tile-rim)" : v("border-card")),
         opacity: dimmed ? 0.7 : 1,
         display: "flex",
         alignItems: "center",

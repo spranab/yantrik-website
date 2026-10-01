@@ -1,6 +1,7 @@
 /* The site's own layout and type, on the OS's tokens (src/os/tokens.css) and nothing else. No
-   colour is written here that the OS does not define, except the mark's ground (#0b0d12,
-   brand/README.md), which globals.css already sets on the body. */
+   colour is written here that the OS does not define. Text in the accent or amber goes through
+   --s-text-accent / --s-text-amber (src/theme/theme.css), which pick the token that reads in the
+   current mode. */
 
 /* ── Frame: 1200 wide, 24px gutters, 16 on a phone ─────────────────────────────────────── */
 .s-wrap {
@@ -95,7 +96,7 @@
   text-underline-offset: 2px;
 }
 .s-src a:hover {
-  color: var(--y-accent-light);
+  color: var(--s-text-accent);
   text-decoration-color: currentColor;
 }
 .s-route {
@@ -105,16 +106,16 @@
   margin: 0 0 var(--y-sp-3);
 }
 .s-route a {
-  color: var(--y-accent-light);
+  color: var(--s-text-accent);
   text-decoration: none;
 }
 .s-route a:hover {
   text-decoration: underline;
 }
 .s-link {
-  color: var(--y-accent-light);
+  color: var(--s-text-accent);
   text-decoration: underline;
-  text-decoration-color: color-mix(in srgb, var(--y-accent-light) 40%, transparent);
+  text-decoration-color: color-mix(in srgb, var(--s-text-accent) 40%, transparent);
   text-underline-offset: 3px;
 }
 .s-link:hover {
@@ -243,9 +244,13 @@
     background: var(--y-bg-surface);
     box-shadow: inset 0 -1px 0 var(--y-separator);
   }
-  .s-nav[data-open="true"] a {
+  .s-nav[data-open="true"] a,
+  .s-nav[data-open="true"] .y-theme {
     height: 48px;
     font-size: 16px;
+  }
+  .s-nav[data-open="true"] .y-theme {
+    justify-content: flex-start;
   }
   .s-nav[data-open="true"] a[aria-current="page"]::after {
     left: 0;
@@ -360,7 +365,7 @@
   display: inline-block;
   padding: 11px 0;
   margin-top: var(--y-sp-2);
-  color: var(--y-accent-light);
+  color: var(--s-text-accent);
   font-weight: 500;
   text-decoration: none;
 }
@@ -463,10 +468,10 @@
   color: var(--y-text-dim);
 }
 .s-term .t-acc {
-  color: var(--y-accent-light);
+  color: var(--s-text-accent);
 }
 .s-term .t-amber {
-  color: var(--y-amber-light);
+  color: var(--s-text-amber);
 }
 .s-term .t-bold {
   color: var(--y-text-primary);
@@ -551,8 +556,10 @@
   text-decoration: none;
   transition: background-color var(--y-dur-fast) ease-out;
 }
+/* The OS's own hover for an accent button: accent-light in dark, accent darkened 8% in light,
+   where white text on accent-light would be 2.8:1. */
 .s-btn:hover {
-  background: var(--y-accent-light);
+  background: var(--y-accent-button-hover);
 }
 .s-btn-quiet {
   background: var(--y-bg-elevated);
@@ -783,7 +790,7 @@
 }
 /* The colours mean what they mean on the desktop: amber is a card waiting for you, red is refused. */
 .dt td[data-cell="ask"] {
-  color: var(--y-amber-light);
+  color: var(--s-text-amber);
   /* A wash of the card's own amber, light enough that the word stays the thing you read. */
   background: color-mix(in srgb, var(--y-amber) 10%, transparent);
 }
@@ -794,7 +801,7 @@
   color: var(--y-text-dim);
 }
 .dt-ask-key {
-  color: var(--y-amber-light);
+  color: var(--s-text-amber);
   font-weight: 500;
   font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
 }
@@ -891,7 +898,7 @@
   background: var(--y-hover-fill);
 }
 .docs-path {
-  color: var(--y-accent-light);
+  color: var(--s-text-accent);
   overflow-wrap: anywhere;
 }
 .docs-title {
