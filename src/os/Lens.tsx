@@ -19,6 +19,8 @@ export type LensProps = {
   onDeny?: (id: string) => void;
   onAllow?: (id: string) => void;
   sessionDisabledNote?: string;
+  /** Draw the mind's tool calls open, with what each returned. */
+  expandCalls?: boolean;
 };
 
 const headerHit = (label: string, color: string) => (
@@ -38,7 +40,7 @@ const headerHit = (label: string, color: string) => (
  * sp-1 apart); the 48px reply bar with the mic, the field and the send button. The field is
  * disabled here: nothing typed into the replica goes anywhere.
  */
-export function Lens({ mindName, messages, approvals = [], approvalsWaiting = 0, isGenerating = false, canOpenInAgents = false, height = 728, onDeny, onAllow, sessionDisabledNote }: LensProps) {
+export function Lens({ mindName, messages, approvals = [], approvalsWaiting = 0, isGenerating = false, canOpenInAgents = false, height = 728, onDeny, onAllow, sessionDisabledNote, expandCalls = false }: LensProps) {
   const transcriptMin = approvals.length > 0 ? 96 : 200;
   return (
     <aside
@@ -85,7 +87,7 @@ export function Lens({ mindName, messages, approvals = [], approvalsWaiting = 0,
       <div style={{ flex: "1 1 0", minHeight: transcriptMin, overflow: "hidden", display: "flex", flexDirection: "column-reverse" }}>
         <div style={{ marginBottom: "auto", flex: "none" }}>
           {messages.map((m, i) => (
-            <MessageBubble key={i} data={m} />
+            <MessageBubble key={i} data={m} expandCalls={expandCalls} />
           ))}
         </div>
       </div>

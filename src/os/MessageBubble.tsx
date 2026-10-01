@@ -10,7 +10,7 @@ import type { ContentBlock, MessageData } from "./types";
  * beside it, 40px clear of the right; the desktop speaking for itself wears an amber dot and the
  * label "From the desktop". The dot's 8px glow is not drawn (the site draws no glows).
  */
-export function MessageBubble({ data }: { data: MessageData }) {
+export function MessageBubble({ data, expandCalls = false }: { data: MessageData; /** Draw its tool calls open. */ expandCalls?: boolean }) {
   const isUser = data.role === "user";
   const isDesktop = data.role === "desktop";
   const blocks = data.blocks ?? [];
@@ -30,7 +30,7 @@ export function MessageBubble({ data }: { data: MessageData }) {
       <div style={{ flex: "1 1 0", minWidth: 0, display: "flex", flexDirection: "column", gap: 4 }}>
         {isDesktop ? <span style={text(v("font-small"), 600, v("amber-light"))}>From the desktop</span> : null}
         {!hasBlocks ? <div style={{ ...text(v("font-body")), ...wrap }}>{data.content}</div> : null}
-        {hasBlocks ? blocks.map((b, i) => <Block key={i} block={b} />) : null}
+        {hasBlocks ? blocks.map((b, i) => <Block key={i} block={b} expandCalls={expandCalls} />) : null}
         {data.run && !data.isStreaming ? (
           <span style={{ ...text(v("font-small"), 600, v("cyan-light")), paddingTop: 4 }}>
             {data.run === "private:leave" ? "Leave Private mode →" : "Open the run →"}
@@ -41,8 +41,8 @@ export function MessageBubble({ data }: { data: MessageData }) {
   );
 }
 
-function Block({ block }: { block: ContentBlock }) {
-  if (block.blockType === "tool" && block.call) return <ToolCallCard call={block.call} />;
+function Block({ block, expandCalls }: { block: ContentBlock; expandCalls: boolean }) {
+  if (block.blockType === "tool" && block.call) return <ToolCallCard call={block.call} expanded={expandCalls} />;
   if (block.blockType === "code") {
     return (
       <div style={{ background: v("bg-card"), borderRadius: 6, boxShadow: ring(v("border-subtle")), padding: "8px 10px" }}>

@@ -85,7 +85,8 @@ export type ReplayState = {
   windows: WindowState[];
   /** The app whose window was last brought to the front, while it is open. */
   front: string | null;
-  notes: { title: string; body: string } | null;
+  /** The note as Notes shows it, and when it last changed (recorded ms since `source.recorded`). */
+  notes: { title: string; body: string; realMs: number } | null;
   transcript: TranscriptItem[];
   thinking: boolean;
   card: CardState | null;
@@ -218,7 +219,7 @@ function apply(s: ReplayState, e: Event, key: string, realBase: number) {
       break;
     }
     case "notes":
-      s.notes = { title: e.title, body: e.body };
+      s.notes = { title: e.title, body: e.body, realMs: realBase + e.t };
       break;
     case "card": {
       const { t, type, ...card } = e;
