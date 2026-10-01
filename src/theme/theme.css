@@ -5,23 +5,38 @@
    Dark is the OS's palette as the site has always used it. In light, the OS's `accent-light` and
    `amber-light` are pale tints (#3aa9b4 is 2.5:1 on bg-deep, #a07840 is 3.5:1), made for marks and
    fills, so text that wears them in dark wears `accent` (4.9:1) and `amber` (4.9:1) instead. The
-   page's ground is the mark's own #0b0d12 in dark (brand/README.md) and the OS's bg-deep in light. */
+   page's ground is the mark's own #0b0d12 in dark (brand/README.md) and white (the OS's bg-card) in
+   light. On a white ground the OS's faintest separator and its pale panels all but vanish, so in
+   light the site's lines take the OS's default border and its panels and code take the OS's own
+   pale greys, which is what lets them stand apart from the page. */
 :root {
   --s-ground: #0b0d12;
   --s-text-accent: var(--y-accent-light);
   --s-text-amber: var(--y-amber-light);
+  --s-line: var(--y-separator);
+  --s-pane-bg: var(--y-bg-card);
+  --s-pane-line: var(--y-border-card);
+  --s-code-bg: var(--y-bg-input);
 }
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
-    --s-ground: var(--y-bg-deep);
+    --s-ground: var(--y-bg-card);
     --s-text-accent: var(--y-accent);
     --s-text-amber: var(--y-amber);
+    --s-line: var(--y-border-default);
+    --s-pane-bg: var(--y-bg-input);
+    --s-pane-line: var(--y-border-strong);
+    --s-code-bg: var(--y-bg-deep);
   }
 }
 :root[data-theme="light"] {
-  --s-ground: var(--y-bg-deep);
+  --s-ground: var(--y-bg-card);
   --s-text-accent: var(--y-accent);
   --s-text-amber: var(--y-amber);
+  --s-line: var(--y-border-default);
+  --s-pane-bg: var(--y-bg-input);
+  --s-pane-line: var(--y-border-strong);
+  --s-code-bg: var(--y-bg-deep);
 }
 
 /* ── The toggle: System → Light → Dark (src/theme/theme-boot.js) ──────────────────────────

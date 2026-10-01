@@ -49,3 +49,14 @@
   --y-os-wallpaper-wash: #f3f5f8b0;
   --y-os-app-tint-keep: 10%;
 }
+
+/* A screen of the OS on a light page (the hero's desktop) is the OS in its dark mode, as the live
+   stream is: these component-level values and the site's text roles go back to dark inside it,
+   beside the tokens tokens.css resets there. */
+.y-screen-dark {
+  --y-os-tile-rim: #ffffff30;
+  --y-os-wallpaper-wash: transparent;
+  --y-os-app-tint-keep: 14%;
+  --s-text-accent: var(--y-accent-light);
+  --s-text-amber: var(--y-amber-light);
+}

@@ -235,7 +235,8 @@ export default function Hero() {
         </p>
       ) : null}
 
-      <div ref={frameRef} style={{ width: "100%" }}>
+      {/* The desktop is a picture of the machine: the OS in its dark mode on either page theme. */}
+      <div ref={frameRef} className="y-screen-dark" style={{ width: "100%" }}>
         <div style={{ position: "relative", overflow: "clip", borderRadius: "var(--y-r-md)", ...stage }} onFocusCapture={narrow ? () => setView("lens") : undefined}>
           <div className={narrow && !reducedMotion ? "y-hero-pan" : undefined} style={{ position: "absolute", left: 0, top: 0, ...inner }}>
             <Desktop {...desktop} />
