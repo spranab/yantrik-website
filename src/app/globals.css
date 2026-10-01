@@ -1,119 +1,114 @@
 @import "tailwindcss";
+/* Every colour, size, radius and duration comes from the OS (scripts/gen-tokens.mjs). */
+@import "../os/tokens.css";
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
-  --font-mono: var(--font-jetbrains-mono);
+  --font-sans: var(--font-barlow), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 
-  --color-accent: #6366f1;
-  --color-accent-light: #818cf8;
-  --color-accent-glow: rgba(99, 102, 241, 0.3);
-  --color-surface: #111118;
-  --color-surface-light: #1a1a24;
-  --color-border: rgba(255, 255, 255, 0.06);
+  --color-ground: #0b0d12; /* the mark's ground, brand/README.md */
+  --color-deep: var(--y-bg-deep);
+  --color-surface: var(--y-bg-surface);
+  --color-card: var(--y-bg-card);
+  --color-elevated: var(--y-bg-elevated);
+  --color-primary: var(--y-text-primary);
+  --color-secondary: var(--y-text-secondary);
+  --color-dim: var(--y-text-dim);
+  --color-accent: var(--y-accent);
+  --color-accent-light: var(--y-accent-light);
+  --color-accent-dim: var(--y-accent-dim);
+  --color-amber: var(--y-amber);
+  --color-danger: var(--y-color-danger);
+  --color-success: var(--y-color-success);
+  --color-hairline: var(--y-border-subtle);
+
+  --radius-xs: var(--y-r-xs);
+  --radius-sm: var(--y-r-sm);
+  --radius-md: var(--y-r-md);
+  --radius-lg: var(--y-r-lg);
+  --radius-xl: var(--y-r-xl);
 }
 
 :root {
-  --background: #07070b;
-  --foreground: #e4e4e7;
+  color-scheme: dark;
+}
+
+html {
+  background: #0b0d12;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  background: #0b0d12;
+  color: var(--y-text-primary);
+  font-family: var(--font-barlow), system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+/* Numbers line up, as they do on the desktop. */
+.num,
+table,
+code,
+pre,
+kbd,
+samp {
+  font-variant-numeric: tabular-nums;
 }
 
-/* Glowing orb animation */
-@keyframes float {
-  0%, 100% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-20px) scale(1.05); }
+/* Machine output is mono at 13px, and never resized. */
+code,
+pre,
+kbd,
+samp,
+.mono {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: var(--y-fs-mono);
 }
 
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.8; }
+::selection {
+  background: color-mix(in srgb, var(--y-accent) 35%, transparent);
 }
 
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* Focus is always visible, in the OS's accent. */
+:focus-visible {
+  outline: 2px solid var(--y-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -48px;
+  z-index: 100;
+  padding: 8px 12px;
+  border-radius: var(--y-r-md);
+  background: var(--y-bg-elevated);
+  color: var(--y-text-primary);
+  transition: top var(--y-dur-fast) ease-out;
+}
+.skip-link:focus {
+  top: 12px;
 }
 
-.animate-pulse-glow {
-  animation: pulse-glow 4s ease-in-out infinite;
+/* The OS's one moving thing: the thinking dot, stepped at 5 fps, only while a mind is thinking
+   (status_bar.slint). Nothing else on this site animates continuously. */
+@keyframes y-thinking {
+  from { opacity: 0.55; }
+  to { opacity: 1; }
+}
+.y-thinking {
+  animation: y-thinking 1s steps(10) infinite alternate;
 }
 
-.animate-gradient {
-  background-size: 200% 200%;
-  animation: gradient-shift 8s ease infinite;
-}
-
-/* Grid background */
-.grid-bg {
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-
-/* Radial glow */
-.radial-glow {
-  background: radial-gradient(
-    ellipse 600px 400px at 50% 0%,
-    rgba(99, 102, 241, 0.12),
-    transparent
-  );
-}
-
-/* Glass card */
-.glass {
-  background: rgba(17, 17, 24, 0.6);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-/* Feature card hover */
-.feature-card {
-  transition: all 0.3s ease;
-}
-.feature-card:hover {
-  border-color: rgba(99, 102, 241, 0.3);
-  box-shadow: 0 0 30px rgba(99, 102, 241, 0.1);
-  transform: translateY(-2px);
-}
-
-/* Typing cursor */
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
-}
-.cursor-blink {
-  animation: blink 1s step-end infinite;
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
