@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { YantrikMark } from "@/os/YantrikMark";
 import { Icon } from "@/os/Icon";
@@ -50,10 +51,10 @@ export function SiteHeader() {
   return (
     <header className="s-header">
       <div className="s-wrap s-header-row">
-        <a className="s-brand" href="/" aria-label="Yantrik OS, home">
+        <Link className="s-brand" href="/" prefetch={false} aria-label="Yantrik OS, home">
           <YantrikMark size={22} />
           <span>Yantrik OS</span>
-        </a>
+        </Link>
         <button
           ref={button}
           type="button"
@@ -66,12 +67,18 @@ export function SiteHeader() {
           Menu
         </button>
         <nav id={navId} className="s-nav" data-open={open} aria-label="Pages">
-          {NAV.map((item) => (
-            <a key={item.href} href={item.href} aria-current={current(item.href)} onClick={() => setOpen(false)}>
-              {"live" in item ? <LiveDot /> : null}
-              {item.label}
-            </a>
-          ))}
+          {NAV.map((item) =>
+            "live" in item ? (
+              <a key={item.href} href={item.href} aria-current={current(item.href)}>
+                <LiveDot />
+                {item.label}
+              </a>
+            ) : (
+              <Link key={item.href} href={item.href} prefetch={false} aria-current={current(item.href)} onClick={() => setOpen(false)}>
+                {item.label}
+              </Link>
+            ),
+          )}
           <a href={OS_REPO} className="s-ext" rel="noopener">
             GitHub
             <span aria-hidden="true">↗</span>
