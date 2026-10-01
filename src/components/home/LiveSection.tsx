@@ -66,8 +66,8 @@ export function LiveSection() {
     >
       <div className="s-prose">
         <p>
-          The page at <a className="s-link" href="/live/">/live</a> shows the screen of a Yantrik OS machine that runs on
-          its own, with its own account and its own mind. You watch; nothing you do there reaches it.
+          The page at <a className="s-link" href="/live/">/live</a> shows the screen of a Yantrik OS machine that works on
+          its own, with a mind attached. You watch; nothing you do there reaches it.
         </p>
       </div>
       <Claims ids={["C-24", "C-27", "C-28"]} />
