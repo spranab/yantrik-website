@@ -1,0 +1,47 @@
+/* The hero's few rules of its own. Only the OS's durations and easing; nothing loops. The global
+   reduced-motion rule (globals.css) cuts both to nothing. */
+
+.y-hero-appear {
+  animation: y-hero-appear var(--y-dur-normal) ease-out both;
+}
+@keyframes y-hero-appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.y-hero-pan {
+  transition: transform var(--y-dur-slow) ease-out;
+}
+
+.y-hero-control {
+  appearance: none;
+  margin: 0;
+  font: inherit;
+  font-size: var(--y-fs-caption);
+  line-height: 1;
+  height: 32px;
+  padding: 0 12px;
+  border: none;
+  border-radius: var(--y-r-md);
+  background: var(--y-bg-card);
+  box-shadow: inset 0 0 0 1px var(--y-border-card);
+  color: var(--y-text-secondary);
+  cursor: pointer;
+  transition: background var(--y-dur-fast) ease-out, color var(--y-dur-fast) ease-out;
+}
+.y-hero-control:hover {
+  background: var(--y-bg-elevated);
+  color: var(--y-text-primary);
+}
+.y-hero-control[aria-pressed="true"] {
+  color: var(--y-text-primary);
+  box-shadow: inset 0 0 0 1px var(--y-accent);
+}
+.y-hero-control.is-primary {
+  color: var(--y-text-primary);
+  box-shadow: inset 0 0 0 1px var(--y-accent-dim);
+}
