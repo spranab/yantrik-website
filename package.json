@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "check:claims": "node scripts/check-claims.mjs",
+    "test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test src/replay/engine.test.ts",
     "prebuild": "node scripts/gen-tokens.mjs && node scripts/gen-icons.mjs && node scripts/sync-os-assets.mjs && node scripts/check-claims.mjs",
     "os:tokens": "node scripts/gen-tokens.mjs",
     "os:icons": "node scripts/gen-icons.mjs",

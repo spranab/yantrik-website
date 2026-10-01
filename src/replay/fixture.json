@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "fixture": true,
+  "source": {
+    "machine": "yantrik-live-001 (VM 561)",
+    "os_build": "not recorded yet",
+    "mind": "Yantrik Mind",
+    "model": "deepseek-v4.1-flash on Ollama Cloud",
+    "mode": "ask",
+    "recorded": "2026-10-01T14:06:10-05:00",
+    "sha256": "none: hand-written stand-in"
+  },
+  "task": "Make a new note in Notes called 'Weekend hike — what to pack' and add five items to it, then export it to ~/Documents/hike-checklist.md.",
+  "prefix": [
+    { "t": 0, "type": "user_message", "text": "Make a new note in Notes called 'Weekend hike — what to pack' and add five items to it, then export it to ~/Documents/hike-checklist.md." },
+    { "t": 350, "type": "mind_thinking", "on": true },
+    { "t": 2950, "type": "tool_call", "id": "call-1", "tool": "os_act", "app": "shell", "action": "open_app", "args": { "name": "notes" } },
+    { "t": 3600, "type": "window", "app": "mind-view", "title": "Mind View", "state": "open" },
+    { "t": 4300, "type": "window", "app": "notes", "title": "Notes", "state": "front" },
+    { "t": 4420, "type": "tool_result", "id": "call-1", "ok": true, "summary": "opened notes in Mind View" },
+    { "t": 6900, "type": "tool_call", "id": "call-2", "tool": "os_act", "app": "notes", "action": "new_note", "args": { "title": "Weekend hike — what to pack" } },
+    { "t": 7350, "type": "notes", "title": "Weekend hike — what to pack", "body": "# Weekend hike — what to pack\n" },
+    { "t": 7480, "type": "tool_result", "id": "call-2", "ok": true, "summary": "created and opened \"Weekend hike — what to pack\"" },
+    { "t": 9700, "type": "tool_call", "id": "call-3", "tool": "os_act", "app": "notes", "action": "append", "args": { "text": "\n- Water, two litres\n- Rain jacket\n- Trail snacks\n- First-aid kit\n- Map and a charged phone\n" } },
+    { "t": 10150, "type": "notes", "title": "Weekend hike — what to pack", "body": "# Weekend hike — what to pack\n\n- Water, two litres\n- Rain jacket\n- Trail snacks\n- First-aid kit\n- Map and a charged phone\n" },
+    { "t": 10290, "type": "tool_result", "id": "call-3", "ok": true, "summary": "appended 5 lines to \"Weekend hike — what to pack\" and saved it" },
+    { "t": 12400, "type": "mind_message", "text": "The note has its five items. Next I will export it to ~/Documents/hike-checklist.md." },
+    { "t": 13050, "type": "tool_call", "id": "call-4", "tool": "os_act", "app": "notes", "action": "export", "args": { "path": "~/Documents/hike-checklist.md" } },
+    { "t": 13300, "type": "mind_thinking", "on": false },
+    {
+      "t": 13420,
+      "type": "card",
+      "caller": "Yantrik Mind",
+      "agent": "yantrik-mind:main",
+      "app": "notes",
+      "action": "export",
+      "grade": "sensitive",
+      "says": "Write the open note's text to a file outside the library, at this path. It refuses rather than overwrite anything already there, and the note stays open.",
+      "does": "Write the open note's text to a file outside the library, at this path.",
+      "args": { "path": "~/Documents/hike-checklist.md" }
+    }
+  ],
+  "branches": {
+    "deny": [
+      { "t": 0, "type": "card_answer", "answer": "deny" },
+      { "t": 180, "type": "tool_result", "id": "call-4", "ok": false, "summary": "refused: the person denied notes.export; nothing was written" },
+      { "t": 320, "type": "mind_thinking", "on": true },
+      { "t": 2240, "type": "mind_thinking", "on": false },
+      { "t": 2260, "type": "mind_message", "text": "I didn't export it: you denied notes.export, so ~/Documents/hike-checklist.md was not written and does not exist. The note \"Weekend hike — what to pack\" is still in Notes with its five items." },
+      { "t": 2900, "type": "file", "path": "~/Documents/hike-checklist.md", "exists": false }
+    ],
+    "allow": [
+      { "t": 0, "type": "card_answer", "answer": "allow_once" },
+      { "t": 640, "type": "tool_result", "id": "call-4", "ok": true, "summary": "wrote ~/Documents/hike-checklist.md (124 bytes)" },
+      { "t": 780, "type": "mind_thinking", "on": true },
+      { "t": 2120, "type": "mind_thinking", "on": false },
+      { "t": 2140, "type": "mind_message", "text": "Done. \"Weekend hike — what to pack\" has five items, and it is exported to ~/Documents/hike-checklist.md. The note is still open in Notes." },
+      { "t": 2700, "type": "file", "path": "~/Documents/hike-checklist.md", "exists": true, "bytes": 124 }
+    ]
+  }
+}
