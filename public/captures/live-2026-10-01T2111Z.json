@@ -1,0 +1,8 @@
+{
+  "what": "One frame of the Yantrik Live stream, as any viewer receives it",
+  "captured_utc": "2026-10-01T21:11:40Z",
+  "from": "https://yantrikos.com/live/hls/index.m3u8",
+  "how": "ffmpeg -i https://yantrikos.com/live/hls/index.m3u8?cookieCheck=1 -frames:v 1 frame.png, then ffmpeg -c:v libwebp -quality 88 to this .webp; not otherwise edited",
+  "stream": "ffprobe: h264, 1280x800, r_frame_rate 3/1, one stream (no audio)",
+  "shown_on": "the homepage's Live section, captioned as a still"
+}
