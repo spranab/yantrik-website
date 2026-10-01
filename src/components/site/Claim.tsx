@@ -28,7 +28,7 @@ export function Claim({ id, as = "p" }: { id: string; as?: "p" | "li" }) {
     <Tag className="s-claim" data-claim={c.id}>
       <span className="s-claim-text">{c.text}</span>
       {c.limit ? <span className="s-limit">{c.limit}</span> : null}
-      <Source paths={[c.source, ...(c.also ?? [])]} checked={c.checked} />
+      <Source paths={[c.source, ...(c.also ?? [])]} />
     </Tag>
   );
 }

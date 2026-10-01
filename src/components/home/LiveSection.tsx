@@ -56,9 +56,10 @@ export function LiveSection() {
             </div>
           </div>
           <figcaption className="lf-cap">
+            <span className="s-label">The machine right now:</span>
             <LivePill />
             <span className="s-src" style={{ margin: 0 }}>
-              Above: one frame of the stream, captured 1 Oct 2026 at 21:11 UTC. A still, not the stream.
+              The picture above is one frame of the stream, captured 1 Oct 2026 at 21:11 UTC: a still, not the stream.
             </span>
           </figcaption>
         </figure>

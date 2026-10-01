@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Vendored as published, checked by its sha512 (public/live/vendor/hls.js-1.6.15.txt).
+    "public/live/vendor/**",
   ]),
 ]);
 

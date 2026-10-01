@@ -1055,7 +1055,7 @@ pre,
   font-feature-settings: "liga" 0, "calt" 0;
 }
 @media (max-width: 639px) {
-  .s-table[data-stack] caption {
+  .s-table[data-stack] caption:not(.sr-only) {
     display: block;
     width: 100%;
     padding-left: 0;
