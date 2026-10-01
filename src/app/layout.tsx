@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import "./globals.css";
+
+// Sets the visitor's theme on <html> before the first paint (src/theme/theme-boot.js, the same file
+// /live loads). Read at build: the site is a static export, so this is inlined into every page.
+const themeBoot = readFileSync(join(process.cwd(), "src/theme/theme-boot.js"), "utf8");
 
 // The OS's own typefaces, copied from yantrik-os at build (scripts/sync-os-assets.mjs): Barlow for
 // everything a person reads, JetBrains Mono for everything a machine said.
@@ -65,7 +71,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${barlow.variable} ${mono.variable}`}>
+    // The boot script adds data-theme and data-theme-choice before React hydrates.
+    <html lang="en" className={`${barlow.variable} ${mono.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeBoot }} />
+      </head>
       <body>
         <a href="#main" className="skip-link">
           Skip to the content
