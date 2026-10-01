@@ -78,7 +78,10 @@ export function NotesWindow(p: NotesWindowProps) {
             </>
           ) : (
             <div style={{ flex: "1 1 0", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", gap: 18, padding: 50 }}>
-              <Icon name="notes" size={46} tint={v("amber")} />
+              {/* A fixed-width element in a Slint VerticalLayout sits at the layout's left edge. */}
+              <span style={{ alignSelf: "flex-start" }}>
+                <Icon name="notes" size={46} tint={v("amber")} />
+              </span>
               <span style={text(30, 600)}>A little space to think.</span>
               <span style={{ ...text(14, 400, v("text-secondary")), ...wrap, whiteSpace: "pre-line", textAlign: "center" }}>
                 {"Gather ideas. Keep the details. Make something of them.\nChoose a note, or start a fresh page."}

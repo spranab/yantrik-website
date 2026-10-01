@@ -38,6 +38,9 @@ export function text(size: number | string, w = 400, color = v("text-primary")):
     fontWeight: weight(w),
     color,
     lineHeight: `round(up, calc(${fs} * 1.2), 1px)`,
+    // Kept when `wrap` sets the paragraph pitch back to 1.2 em: a wrapping Text that fits on one
+    // line is still laid out a whole pixel tall.
+    minHeight: `round(up, calc(${fs} * 1.2), 1px)`,
     whiteSpace: "nowrap",
   };
 }
