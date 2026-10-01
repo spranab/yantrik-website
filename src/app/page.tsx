@@ -1,33 +1,29 @@
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Features from "@/components/Features";
-import MindSocket from "@/components/MindSocket";
-import Screenshots from "@/components/Screenshots";
-import VideoDemo from "@/components/VideoDemo";
-import ConversationDemo from "@/components/ConversationDemo";
-import Architecture from "@/components/Architecture";
-import BondSystem from "@/components/BondSystem";
-import SkillStore from "@/components/SkillStore";
-import Download from "@/components/Download";
-import Footer from "@/components/Footer";
+import Hero from "@/components/hero/Hero";
+import { SiteShell } from "@/components/site/SiteShell";
+import { LiveSection } from "@/components/home/LiveSection";
+import { DownloadSection } from "@/components/home/DownloadSection";
+import { MindsSection } from "@/components/home/MindsSection";
+import { SecuritySection } from "@/components/home/SecuritySection";
+import { AppsSection } from "@/components/home/AppsSection";
+import { DocsSection } from "@/components/home/DocsSection";
+import { getRelease } from "@/lib/release";
 
-export default function Home() {
+// The homepage: the desktop at the top (the hero, built on its own branch), then a section for
+// each deeper page, each saying in plain words what is there and showing one real thing from the
+// OS: a frame of the live machine, the release host's own latest.json, the harness protocol, a
+// grade in an app's code and the decision table, the apps and a reply one of them gave, the docs.
+export default async function Home() {
+  const release = await getRelease();
   return (
-    <main className="relative">
-      <Navbar />
+    <SiteShell>
       <Hero />
-      <Screenshots />
-      <VideoDemo />
-      <Features />
-      <MindSocket />
-      <div id="demo">
-        <ConversationDemo />
-      </div>
-      <BondSystem />
-      <SkillStore />
-      <Architecture />
-      <Download />
-      <Footer />
-    </main>
+      <div style={{ height: 72 }} aria-hidden="true" />
+      <LiveSection />
+      <DownloadSection release={release} />
+      <MindsSection />
+      <SecuritySection />
+      <AppsSection />
+      <DocsSection />
+    </SiteShell>
   );
 }

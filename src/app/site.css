@@ -347,11 +347,9 @@
   margin-bottom: var(--y-sp-5);
 }
 .s-more {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--y-sp-2);
-  min-height: var(--y-touch-target);
-  margin-top: var(--y-sp-3);
+  display: inline-block;
+  padding: 11px 0;
+  margin-top: var(--y-sp-2);
   color: var(--y-accent-light);
   font-weight: 500;
   text-decoration: none;
@@ -677,3 +675,245 @@
 @media (max-width: 459px) { .hero-scale { --hero-k: 0.287; } }
 @media (max-width: 399px) { .hero-scale { --hero-k: 0.256; } }
 @media (max-width: 359px) { .hero-scale { --hero-k: 0.225; } }
+
+/* ── Home: the live frame, at a width per layout so its 14px title is never scaled ─────── */
+.lf > div {
+  display: none;
+}
+.lf .lf-a {
+  display: block;
+}
+@media (max-width: 1231px) {
+  .lf .lf-a { display: none; }
+  .lf .lf-b { display: block; }
+}
+@media (max-width: 1023px) {
+  .lf .lf-b { display: none; }
+  .lf .lf-c { display: block; }
+}
+@media (max-width: 639px) {
+  .lf .lf-c { display: none; }
+  .lf .lf-d { display: block; }
+  .lf { overflow: hidden; }
+}
+.lf-cap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--y-sp-2) var(--y-sp-3);
+  margin-top: var(--y-sp-3);
+}
+
+/* ── Home: minds ───────────────────────────────────────────────────────────────────────── */
+.mind-list {
+  list-style: none;
+  margin: var(--y-sp-5) 0 var(--y-sp-6);
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--y-sp-3) var(--y-sp-5);
+}
+.mind-list li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--y-sp-2);
+  color: var(--y-text-primary);
+  font-weight: 500;
+}
+.mind-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--y-sp-2) var(--y-sp-3);
+  margin-top: var(--y-sp-5);
+}
+
+/* ── Home: security ────────────────────────────────────────────────────────────────────── */
+.sec-art-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--y-sp-8);
+}
+.sec-art-grid .dt-fig {
+  max-width: 820px;
+}
+.dt-pane {
+  padding: var(--y-sp-4) var(--y-sp-2) var(--y-sp-2);
+}
+.dt th[scope="row"] {
+  white-space: nowrap;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.dt td {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: var(--y-fs-mono);
+  vertical-align: middle;
+  color: var(--y-text-secondary);
+}
+.dt-chip {
+  display: inline-flex;
+  vertical-align: middle;
+}
+.dt-default {
+  display: block;
+  font-size: var(--y-fs-caption);
+  font-weight: 400;
+  color: var(--y-text-dim);
+  margin: -4px 0 2px 2px;
+}
+/* The colours mean what they mean on the desktop: amber is a card waiting for you, red is refused. */
+.dt td[data-cell="ask"] {
+  color: var(--y-amber-light);
+  box-shadow: inset 0 -1px 0 var(--y-separator), inset 3px 0 0 var(--y-amber);
+}
+.dt td[data-cell="refuse"] {
+  color: var(--y-color-danger);
+}
+.dt-logged {
+  color: var(--y-text-dim);
+}
+.dt-ask-key {
+  color: var(--y-amber-light);
+  font-weight: 500;
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+}
+@media (max-width: 639px) {
+  .dt[data-stack] td[data-cell="ask"] {
+    box-shadow: inset 3px 0 0 var(--y-amber);
+    padding-left: 10px;
+  }
+}
+
+/* ── Home: apps ────────────────────────────────────────────────────────────────────────── */
+.apps-art {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: var(--y-sp-6);
+  align-items: start;
+}
+@media (max-width: 1023px) {
+  .apps-art {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.app-row {
+  list-style: none;
+  margin: 0;
+  padding: var(--y-sp-5) var(--y-sp-3);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--y-sp-5) var(--y-sp-2);
+  background: var(--y-bg-deep);
+  border-radius: var(--y-r-lg);
+  box-shadow: inset 0 0 0 1px var(--y-border-card);
+  user-select: text;
+}
+.app-row li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--y-sp-2);
+  font-size: var(--y-fs-caption);
+  line-height: 1.25;
+  color: var(--y-text-secondary);
+  text-align: center;
+  min-width: 0;
+}
+
+/* ── Home: docs ────────────────────────────────────────────────────────────────────────── */
+.docs-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--y-sp-5) var(--y-sp-6);
+  padding: var(--y-sp-5) var(--y-sp-4);
+}
+@media (max-width: 479px) {
+  .docs-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.docs-journey {
+  margin: 0 0 var(--y-sp-2);
+  font-size: var(--y-fs-caption);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--y-text-dim);
+}
+.docs-group ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: var(--y-fs-mono);
+}
+.docs-group li {
+  display: flex;
+  align-items: flex-start;
+}
+.docs-group li .t-prompt {
+  color: var(--y-text-dim);
+  white-space: pre;
+  line-height: 22px;
+  padding-top: 4px;
+}
+.docs-group a {
+  display: flex;
+  flex-direction: column;
+  min-height: var(--y-touch-target);
+  justify-content: center;
+  padding: 2px 6px;
+  border-radius: var(--y-r-sm);
+  text-decoration: none;
+  min-width: 0;
+}
+.docs-group a:hover {
+  background: var(--y-hover-fill);
+}
+.docs-path {
+  color: var(--y-accent-light);
+  overflow-wrap: anywhere;
+}
+.docs-title {
+  font-family: var(--font-barlow), system-ui, sans-serif;
+  font-size: var(--y-fs-caption);
+  color: var(--y-text-dim);
+}
+
+/* ── Pages not built yet ───────────────────────────────────────────────────────────────── */
+.coming-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--y-sp-8);
+  margin-top: 56px;
+  padding-top: var(--y-sp-8);
+  box-shadow: inset 0 1px 0 var(--y-separator);
+}
+@media (max-width: 767px) {
+  .coming-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.coming-list {
+  margin: var(--y-sp-4) 0 0;
+  padding: 0 0 0 1.1em;
+  color: var(--y-text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: var(--y-sp-2);
+  max-width: 70ch;
+}
+.coming-src {
+  list-style: none;
+  padding: 0;
+  gap: var(--y-sp-3);
+}
+.coming-src li {
+  display: flex;
+  flex-direction: column;
+}
+.coming-src span {
+  font-size: var(--y-fs-body);
+  color: var(--y-text-dim);
+}

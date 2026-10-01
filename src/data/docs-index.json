@@ -1,0 +1,49 @@
+{
+  "about": "The OS repository's docs/ folder, grouped by what a reader is doing (design/redesign-plan-2026-10-01.md, /docs). Each title is the file's own first heading (a schema's \"title\") at the pinned commit in claims.json; nothing here is the site's wording except the journey names.",
+  "journeys": [
+    {
+      "name": "Start",
+      "files": [
+        { "path": "docs/getting-started.md", "title": "Getting started" },
+        { "path": "docs/hardware-requirements.md", "title": "Hardware requirements" }
+      ]
+    },
+    {
+      "name": "Drive it",
+      "files": [
+        { "path": "docs/app-control.md", "title": "The app control surface — a guide" },
+        { "path": "docs/surface-protocol.md", "title": "The surface protocol, version 1" }
+      ]
+    },
+    {
+      "name": "Build a surface",
+      "files": [
+        { "path": "docs/sdk/README.md", "title": "Putting your program where a mind can find it" },
+        { "path": "docs/sdk/rust-quickstart.md", "title": "Rust quickstart" },
+        { "path": "docs/sdk/python-quickstart.md", "title": "Python quickstart" },
+        { "path": "docs/sdk/wrap-an-app.md", "title": "Wrap an app you did not write" },
+        { "path": "docs/sdk/grades.md", "title": "Choosing a grade" },
+        { "path": "docs/sdk/checking.md", "title": "Checking your surface" },
+        { "path": "docs/app-sdk.md", "title": "Writing a Yantrik app" }
+      ]
+    },
+    {
+      "name": "Attach a mind",
+      "files": [
+        { "path": "docs/harness.md", "title": "Attaching a harness" },
+        { "path": "docs/free-tiers.md", "title": "Free LLM tiers the pool uses" },
+        { "path": "docs/companion.md", "title": "The AI Companion" }
+      ]
+    },
+    {
+      "name": "Reference",
+      "files": [
+        { "path": "docs/architecture.md", "title": "Yantrik OS — System Architecture" },
+        { "path": "docs/footprint.md", "title": "What Yantrik costs to run" },
+        { "path": "docs/releasing.md", "title": "Releasing Yantrik OS" },
+        { "path": "docs/schema/describe.schema.json", "title": "app.describe result, surface protocol 1" },
+        { "path": "docs/schema/act.schema.json", "title": "app.act, surface protocol 1" }
+      ]
+    }
+  ]
+}
