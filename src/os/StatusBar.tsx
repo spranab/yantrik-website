@@ -13,8 +13,9 @@ export type StatusBarProps = {
   date?: string;
   companionStatus?: CompanionStatus;
   companionOnline?: boolean;
-  cpuPercent: number;
-  memText: string;
+  /** The machine's load. Leave both out when it is not known (a replay that did not record it). */
+  cpuPercent?: number;
+  memText?: string;
   mode: MindMode;
   modeLabel: string;
   privateMode?: boolean;
@@ -168,7 +169,7 @@ export function StatusBar(p: StatusBarProps) {
 
       {/* RIGHT: load | mode | mind | badges | network | power | clock + date */}
       <div style={{ flex: "1 1 0", display: "flex", alignItems: "center", justifyContent: "flex-end", gap: v("sp-3"), minWidth: "max-content" }}>
-        {width >= 1100 ? (
+        {width >= 1100 && p.cpuPercent !== undefined && p.memText !== undefined ? (
           <span style={{ display: "flex", alignItems: "center", gap: v("sp-2") }}>
             <span style={text(micro, 500, v("text-dim"))}>CPU</span>
             <span style={{ ...text(micro, 500, p.cpuPercent >= 90 ? v("color-warning") : v("text-secondary")), minWidth: 26 }}>

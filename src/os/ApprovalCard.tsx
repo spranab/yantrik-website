@@ -104,7 +104,8 @@ export function ApprovalCard({ data, onDeny, onAllow, purposeOverflows, purposeO
           <span style={text(v("fs-micro"), 400, v("text-dim"))}>{data.ageText}</span>
         </div>
         {label("says the caller · nothing on this machine checked that name")}
-        {pair(<span style={micro(v("text-primary"), 600)}>{data.verified}</span>, "verified by this machine · the kernel said so, not the caller")}
+        {/* A replay whose recording did not carry the kernel's answer leaves it out rather than guess. */}
+        {data.verified ? pair(<span style={micro(v("text-primary"), 600)}>{data.verified}</span>, "verified by this machine · the kernel said so, not the caller") : null}
         {data.agent
           ? pair(
               <span style={micro(v("text-primary"), 600)}>{`agent ${data.onBehalf ? `${data.onBehalf} · ` : ""}${data.agent}`}</span>,
