@@ -244,7 +244,7 @@ export default function Hero() {
       </div>
 
       <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 8, marginTop: 12 }}>
-        <p ref={statusRef} tabIndex={-1} aria-live="polite" style={{ margin: 0, flex: "1 1 320px", font: "400 14px/1.45 var(--font-barlow), sans-serif", color: raw.status === "waiting" ? "var(--y-amber-light)" : "var(--y-text-secondary)", outline: "none" }}>
+        <p ref={statusRef} tabIndex={-1} aria-live="polite" style={{ margin: 0, flex: "1 1 320px", font: "400 14px/1.45 var(--font-barlow), sans-serif", color: raw.status === "waiting" ? "var(--s-text-amber)" : "var(--y-text-secondary)", outline: "none" }}>
           {statusLine(raw, timeline)}
         </p>
         <span style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>

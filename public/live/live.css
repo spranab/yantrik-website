@@ -1,6 +1,7 @@
-/* Yantrik Live. The site's tokens (tokens.css, copied from src/os/tokens.css) and the OS's
-   typefaces, with the same header grammar as the rest of yantrikos.com (src/app/site.css). No
-   colour here that the OS does not define, except the mark's ground (#0b0d12, brand/README.md). */
+/* Yantrik Live. The site's tokens (tokens.css, copied from src/os/tokens.css), its light/dark roles
+   and theme toggle (theme.css, from src/theme/theme.css) and the OS's typefaces, with the same
+   header grammar as the rest of yantrikos.com (src/app/site.css). No colour here that the OS does
+   not define; the page's ground is theme.css's --s-ground. */
 
 @font-face { font-family: "Barlow"; src: url("/live/fonts/Barlow-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
 @font-face { font-family: "Barlow"; src: url("/live/fonts/Barlow-Medium.ttf") format("truetype"); font-weight: 500; font-display: swap; }
@@ -8,7 +9,7 @@
 @font-face { font-family: "JetBrains Mono"; src: url("/live/fonts/JetBrainsMono-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
 
 * { box-sizing: border-box; }
-html, body { margin: 0; background: #0b0d12; color: var(--y-text-primary); }
+html, body { margin: 0; background: var(--s-ground); color: var(--y-text-primary); }
 body {
   font: 16px/1.55 "Barlow", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -17,7 +18,7 @@ body {
   font-feature-settings: "liga" 0, "calt" 0;
 }
 [hidden] { display: none !important; }
-a { color: var(--y-accent-light); }
+a { color: var(--s-text-accent); }
 .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: var(--y-fs-mono); }
 :focus-visible { outline: 2px solid var(--y-accent); outline-offset: 2px; border-radius: 4px; }
 main:focus { outline: none; }
@@ -63,7 +64,8 @@ main:focus { outline: none; }
   position: absolute; left: 0; right: 0; top: 52px; flex-direction: column; align-items: stretch; gap: 0;
   padding: var(--y-sp-2) var(--y-sp-4) var(--y-sp-4); background: var(--y-bg-surface); box-shadow: inset 0 -1px 0 var(--y-separator);
 }
-.nav-narrow a { height: 48px; font-size: 16px; }
+.nav-narrow a, .nav-narrow .y-theme { height: 48px; font-size: 16px; }
+.nav-narrow .y-theme { justify-content: flex-start; }
 .nav-narrow a[aria-current="page"] { box-shadow: inset 3px 0 0 var(--y-accent); }
 @media (max-width: 899px) {
   .nav-wide { display: none; }
@@ -117,7 +119,7 @@ video { position: absolute; inset: 1px; width: calc(100% - 2px); height: calc(10
 .btn:hover { box-shadow: inset 0 0 0 1px var(--y-border-strong); }
 .src { font-size: var(--y-fs-caption); line-height: 1.45; color: var(--y-text-dim); margin: var(--y-sp-2) 0 0; }
 .src a { color: var(--y-text-dim); text-decoration-color: var(--y-border-strong); text-underline-offset: 2px; }
-.src a:hover { color: var(--y-accent-light); }
+.src a:hover { color: var(--s-text-accent); }
 
 /* The context column: four answers, the last one an honest gap. When the machine publishes what
    it is doing, this column is where it goes. */

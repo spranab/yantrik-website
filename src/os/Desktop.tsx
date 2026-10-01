@@ -74,6 +74,8 @@ export function Desktop({
     <div className="y-os" style={{ position: "relative", width, height, overflow: "hidden", background: v("bg-deep") }}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={wallpaper} alt="" style={{ position: "absolute", left: 0, top: bar, width, height: height - bar, objectFit: "fill" }} />
+      {/* In light mode the desktop washes the wallpaper (desktop.slint:333); in dark the wash is transparent. */}
+      <div style={{ position: "absolute", left: 0, top: bar, width, height: height - bar, background: "var(--y-os-wallpaper-wash)" }} />
       {home ? at(0, bar, 1, home, width) : null}
 
       {mindPanel && !panelCovered
