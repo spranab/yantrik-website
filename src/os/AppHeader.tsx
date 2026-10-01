@@ -34,7 +34,8 @@ const variantOf = (a: AppAction) => (a.active ? 0 : a.emphasis === 3 ? 3 : a.emp
 export function AppHeader({ width, title, subtitle = "", icon = "", appId = "", modified = false, leadingActions = [], actions = [], windowBar = false, maximized = false }: AppHeaderProps) {
   const hue = APP_HUES[appId] ?? "";
   const tint = hue ? v(`app-${hue}`) : v("accent");
-  const tileBg = hue ? alpha(`app-${hue}`, 14) /* AppColor.tint-for-app: transparentize(0.86) */ : v("tint-accent");
+  // AppColor.tint-for-app: transparentize(ThemeMode.dark ? 0.86 : 0.90), as --y-os-app-tint-keep.
+  const tileBg = hue ? alpha(`app-${hue}`, "var(--y-os-app-tint-keep)") : v("tint-accent");
   const inline = actions.length > 4 || width < 900 ? Math.min(2, actions.length) : actions.length;
   const overflow = actions.length > inline;
   const gap = width < 1000 ? v("sp-2") : v("sp-3");
