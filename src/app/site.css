@@ -137,7 +137,7 @@
   top: 0;
   z-index: 50;
   background: var(--y-glass-panel);
-  box-shadow: inset 0 -1px 0 var(--y-separator);
+  box-shadow: inset 0 -1px 0 var(--s-line);
 }
 .s-header-row {
   display: flex;
@@ -299,7 +299,7 @@
 /* ── Sections ───────────────────────────────────────────────────────────────────────────── */
 .s-sec {
   padding: 96px 0;
-  box-shadow: inset 0 1px 0 var(--y-separator);
+  box-shadow: inset 0 1px 0 var(--s-line);
 }
 @media (max-width: 767px) {
   .s-sec {
@@ -401,9 +401,9 @@
 
 /* ── Panes: a card is a pane, not a hole (border-card) ─────────────────────────────────── */
 .s-pane {
-  background: var(--y-bg-card);
+  background: var(--s-pane-bg);
   border-radius: var(--y-r-lg);
-  box-shadow: inset 0 0 0 1px var(--y-border-card);
+  box-shadow: inset 0 0 0 1px var(--s-pane-line);
 }
 .s-figure {
   margin: 0;
@@ -417,8 +417,8 @@
 .s-term {
   margin: 0;
   border-radius: var(--y-r-lg);
-  background: var(--y-bg-input);
-  box-shadow: inset 0 0 0 1px var(--y-border-card);
+  background: var(--s-code-bg);
+  box-shadow: inset 0 0 0 1px var(--s-pane-line);
   overflow: hidden;
   min-width: 0;
 }
@@ -490,7 +490,7 @@
   text-align: left;
   vertical-align: top;
   padding: 10px var(--y-sp-3);
-  box-shadow: inset 0 -1px 0 var(--y-separator);
+  box-shadow: inset 0 -1px 0 var(--s-line);
 }
 .s-table thead th {
   font-size: var(--y-fs-caption);
@@ -591,7 +591,7 @@
 
 /* ── Footer: the taskbar's line along the bottom ───────────────────────────────────────── */
 .s-footer {
-  box-shadow: inset 0 1px 0 var(--y-separator);
+  box-shadow: inset 0 1px 0 var(--s-line);
   background: var(--y-bg-deep);
   padding: var(--y-sp-8) 0 var(--y-sp-9);
   font-size: var(--y-fs-body);
@@ -832,7 +832,7 @@
   gap: var(--y-sp-5) var(--y-sp-2);
   background: var(--y-bg-deep);
   border-radius: var(--y-r-lg);
-  box-shadow: inset 0 0 0 1px var(--y-border-card);
+  box-shadow: inset 0 0 0 1px var(--s-pane-line);
   user-select: text;
 }
 .app-row li {
