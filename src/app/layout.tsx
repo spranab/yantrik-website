@@ -75,6 +75,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" className={`${barlow.variable} ${mono.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeBoot }} />
+        {/* Umami analytics (self-hosted at u.warpmode.io): cookieless page-view counts.
+            A plain deferred tag rather than next/script, so the exported HTML carries it
+            verbatim in <head> on every page. It lived only on feat/umami-analytics, so the
+            October redesign deploy from master dropped it; it belongs here. */}
+        <script
+          defer
+          src="https://u.warpmode.io/script.js"
+          data-website-id="72516f52-1afe-48f6-804d-d90ac321748e"
+        ></script>
       </head>
       <body>
         <a href="#main" className="skip-link">
