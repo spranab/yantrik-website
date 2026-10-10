@@ -85,18 +85,15 @@ export default async function Download() {
           <Step id="get" title="Get it">
             <div className="s-prose">
               <p>
-                The release host says which file is current in <code className="s-code">latest.json</code>. Four lines,
-                and you can see every step:
+                One link, always the newest nightly: <code className="s-code">yantrik-os-latest.iso</code>. The release
+                host points it at each build as it is published, and its checksum file names it, so three lines
+                fetch and check it:
               </p>
             </div>
             <Terminal title="by hand" meta="docs/getting-started.md, §1">
-              <Cmd>
-                curl -fsSL https://iso.yantrikos.com/nightly/latest.json{"          "}
-                <span className="t-dim"># what the current file is called</span>
-              </Cmd>
-              <Cmd>curl -fL -O https://iso.yantrikos.com/nightly/&lt;that file&gt;</Cmd>
-              <Cmd>curl -fL -O https://iso.yantrikos.com/nightly/&lt;that file&gt;.sha256</Cmd>
-              <Cmd>sha256sum -c &lt;that file&gt;.sha256</Cmd>
+              <Cmd>curl -fL -O https://iso.yantrikos.com/nightly/yantrik-os-latest.iso</Cmd>
+              <Cmd>curl -fL -O https://iso.yantrikos.com/nightly/yantrik-os-latest.iso.sha256</Cmd>
+              <Cmd>sha256sum -c yantrik-os-latest.iso.sha256</Cmd>
             </Terminal>
             <Source paths={["docs/getting-started.md"]} />
 
