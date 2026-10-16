@@ -1,6 +1,7 @@
 import Hero from "@/components/hero/Hero";
 import { SiteShell } from "@/components/site/SiteShell";
 import { LiveSection } from "@/components/home/LiveSection";
+import { BuiltSection } from "@/components/home/BuiltSection";
 import { DownloadSection } from "@/components/home/DownloadSection";
 import { MindsSection } from "@/components/home/MindsSection";
 import { SecuritySection } from "@/components/home/SecuritySection";
@@ -34,6 +35,7 @@ export default async function Home() {
       </section>
       <div style={{ height: 72 }} aria-hidden="true" />
       <LiveSection />
+      <BuiltSection />
       <DownloadSection release={release} />
       <MindsSection />
       <SecuritySection />

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sortbars</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Sortbars</h1>
+  <div class="toolbar">
+    <label>Algorithm
+      <select id="algo">
+        <option value="bubble">Bubble sort</option>
+        <option value="insertion">Insertion sort</option>
+        <option value="merge">Merge sort</option>
+        <option value="quick">Quicksort</option>
+      </select>
+    </label>
+    <label>Bars <input id="count" type="range" min="5" max="120" value="40"><span id="countVal">40</span></label>
+    <label>Speed <input id="speed" type="range" min="1" max="100" value="55"><span id="speedVal">55</span></label>
+    <button id="newBtn">New Array</button>
+    <button id="runBtn">Start</button>
+    <button id="stepBtn">Step</button>
+    <button id="resetBtn">Reset</button>
+  </div>
+  <div class="counters">
+    <span>Comparisons <b id="comparisons">0</b></span>
+    <span>Swaps <b id="swaps">0</b></span>
+    <span>Status <b id="status">idle</b></span>
+  </div>
+</header>
+<main><canvas id="stage"></canvas></main>
+<script src="sortbars.js"></script>
+</body>
+</html>

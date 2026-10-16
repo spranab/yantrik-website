@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blockfall</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Blockfall</h1>
+<div id="stage">
+  <canvas id="well" width="300" height="600"></canvas>
+  <aside id="panel">
+    <div class="box"><h2>Next</h2><canvas id="next" width="120" height="120"></canvas></div>
+    <div class="box"><h2>Score</h2><p id="score">0</p></div>
+    <div class="box"><h2>Level</h2><p id="level">1</p></div>
+    <div class="box"><h2>Best</h2><p id="best">0</p></div>
+    <button id="start">Start</button>
+    <button id="pause">Pause</button>
+  </aside>
+</div>
+<div id="touch">
+  <button data-act="left">&#8592;</button>
+  <button data-act="rotate">&#8635;</button>
+  <button data-act="right">&#8594;</button>
+  <button data-act="down">&#8595;</button>
+</div>
+<script src="blockfall.js"></script>
+</body>
+</html>

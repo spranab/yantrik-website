@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pixelsmith</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Pixelsmith</h1>
+<div class="toolbar">
+  <button id="pencil" class="tool active">Pencil</button>
+  <button id="eraser" class="tool">Eraser</button>
+  <button id="fill" class="tool">Fill</button>
+  <button id="picker" class="tool">Picker</button>
+  <button id="undo">Undo</button>
+  <button id="redo">Redo</button>
+  <button id="grid">Grid: on</button>
+  <button id="clear">Clear</button>
+</div>
+<div class="stage">
+  <canvas id="board" width="32" height="32"></canvas>
+  <div class="side">
+    <div id="palette" class="palette"></div>
+    <div class="preview-wrap">
+      <span class="label">Preview 1:1</span>
+      <canvas id="preview" width="32" height="32"></canvas>
+    </div>
+  </div>
+</div>
+<script src="pixelsmith.js"></script>
+</body>
+</html>

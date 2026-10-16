@@ -1,0 +1,35 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 16px;
+  background: #14161a; color: #e6e8ec;
+  font: 14px/1.4 system-ui, sans-serif;
+}
+h1 { font-size: 18px; margin: 0 0 12px; letter-spacing: .04em; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+button {
+  background: #23262d; color: #e6e8ec; border: 1px solid #343842;
+  border-radius: 6px; padding: 6px 10px; cursor: pointer; font: inherit;
+}
+button:hover { background: #2c3038; }
+button.active { background: #3b6ea5; border-color: #4d86c4; }
+.stage { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
+#board {
+  width: 512px; height: 512px;
+  image-rendering: pixelated;
+  border: 1px solid #343842; border-radius: 4px;
+  touch-action: none; cursor: crosshair; background: #fff;
+}
+.side { display: flex; flex-direction: column; gap: 12px; }
+.palette { display: grid; grid-template-columns: repeat(4, 32px); gap: 4px; }
+.swatch {
+  width: 32px; height: 32px; border-radius: 4px;
+  border: 2px solid #343842; cursor: pointer;
+}
+.swatch.active { border-color: #4d86c4; }
+.preview-wrap { display: flex; flex-direction: column; gap: 4px; }
+.label { color: #9aa3b2; font-size: 12px; }
+#preview {
+  width: 128px; height: 128px;
+  image-rendering: pixelated;
+  border: 1px solid #343842; background: #fff;
+}
