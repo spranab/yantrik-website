@@ -415,6 +415,66 @@
       ],
       "checked_on": "2026-10-16",
       "note": null
+    },
+    {
+      "id": "beatgrid",
+      "name": "Beatgrid",
+      "title": "Beatgrid, a drum machine in the browser",
+      "folder": "beatgrid",
+      "brief": "Please build a step sequencer called Beatgrid from scratch, in a folder called beatgrid inside the Projects folder in your home folder. A grid of sixteen steps for six sounds (kick, snare, closed hat, open hat, clap and a tone), every sound made in code with the Web Audio API, with no sample files. Clicking a cell turns it on or off, a playhead sweeps across at the tempo, the tempo can be changed, and there are a few preset beats. Sound stays off until the player presses Start, and the grid lights up as it plays, so it reads on a silent screen too. Use plain HTML, CSS and JavaScript only, all in that one folder, with no libraries and no internet. Do all the work in your own terminal, through the shell's agent_run action: that is how you make the folder, write each file and look at what you wrote. Do not use the Terminal app. Start by writing a short plan into a file called PLAN.md in that folder: a checklist of about 8 steps, from an empty page to a finished sequencer with all six sounds, the playhead, tempo, presets and the Start button. Then work through the plan one step at a time: write or change the files, then check the page by running `/opt/yantrik-live/director/check-page ~/Projects/beatgrid/index.html` through agent_run. It loads the page in a headless browser and prints any error the page throws; no output means it loaded clean. Fix every error it shows. Tick a step off in PLAN.md only when the code for it is really there and the check is clean: a tick is a promise to the people watching. People are watching the screen, so keep each step small and visible. When every step is ticked and the check is clean, write IDEAS.md in the folder: five improvements you would make next, each an unticked checklist line. Then say FINISHED on its own line.",
+      "started": "2026-10-16T01:37:58Z",
+      "finished": "2026-10-16T01:39:17Z",
+      "final_run": {
+        "turns": 1,
+        "minutes": 1,
+        "page_checked": true
+      },
+      "made_with": {
+        "os": "v0.1.0-1572-gf063fcef",
+        "mind": "6f8a153",
+        "model": "deepseek-v4.1-flash on Ollama Cloud, through the live machine's gate"
+      },
+      "files": [
+        {
+          "name": "beatgrid.js",
+          "bytes": 6999,
+          "sha256": "17d1a859d22b5b8740b3fcf1df11c6ddcfb2bd5040b4c23eff4c8828b85f31eb"
+        },
+        {
+          "name": "IDEAS.md",
+          "bytes": 372,
+          "sha256": "b3f8b12500fa02ff001c5e304ae58f216d4048eb5bbdc924b1e0126ba90e1746"
+        },
+        {
+          "name": "index.html",
+          "bytes": 711,
+          "sha256": "46c5986801b88b4f8d1b54a1fed34f39f2e26660f3dff534f660bb02c6a2d098"
+        },
+        {
+          "name": "PLAN.md",
+          "bytes": 660,
+          "sha256": "65a12785a7bed47b51aea6b5f7a42d8b1ea97fc31881d69c1429a67aa2eb5b9d"
+        },
+        {
+          "name": "style.css",
+          "bytes": 1302,
+          "sha256": "632f7343010eb53e2c876940d09ece2b8fe0e278b1f47142bf5b9525105b9dd3"
+        }
+      ],
+      "plan": "# Beatgrid — plan\n\n- [x] 1. Empty page: index.html with title, toolbar, grid container, style.css, beatgrid.js\n- [x] 2. Grid of 16 steps x 6 sound rows rendered from a model, cells clickable on/off\n- [x] 3. Web Audio: kick, snare, closed hat, open hat, clap, tone — all synthesised, no samples\n- [x] 4. Transport: Start/Stop button, lookahead scheduler, playhead sweeping at tempo\n- [x] 5. Grid lights up as it plays (current step column highlighted), silent-screen readable\n- [x] 6. Tempo control (BPM slider/number), applies live\n- [x] 7. Preset beats (a few classic patterns) loadable into the grid\n- [x] 8. Final check: page loads clean via check-page\n",
+      "ideas": "# Beatgrid — ideas for next\n\n- [ ] Save and load your own patterns to localStorage, with a name per pattern\n- [ ] Per-row volume and mute/solo, plus a master gain slider\n- [ ] Swing/shuffle amount so off-beat steps sit late\n- [ ] Export the pattern as a WAV file rendered offline with OfflineAudioContext\n- [ ] A song mode that chains patterns into a longer arrangement\n",
+      "checked": [
+        {
+          "ok": true,
+          "text": "Its four presets load into the 16-step grid, and Start sweeps the playhead across at the tempo, lighting each column as it plays."
+        },
+        {
+          "ok": null,
+          "text": "The sounds themselves were not listened to: they are made in code with the Web Audio API, and only after Start is pressed."
+        }
+      ],
+      "checked_on": "2026-10-16",
+      "note": null
     }
   ]
 }

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beatgrid</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Beatgrid</h1>
+<div class="toolbar">
+  <button id="play">Start</button>
+  <label>BPM <input id="bpm" type="number" value="120" min="40" max="240" step="1"></label>
+  <input id="bpmRange" type="range" min="40" max="240" value="120">
+  <select id="presets"><option value="">Presets…</option></select>
+  <button id="clear">Clear</button>
+</div>
+<div id="grid"></div>
+<p class="hint">Click cells to toggle. Sound starts when you press Start.</p>
+<script src="beatgrid.js"></script>
+</body>
+</html>

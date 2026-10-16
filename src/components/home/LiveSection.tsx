@@ -6,9 +6,9 @@ import { Claims } from "@/components/site/Claim";
 import { LivePill } from "@/components/site/LivePill";
 
 // One frame of the live stream, captured with ffmpeg from https://yantrikos.com/live/hls/ at
-// 2026-10-01T21:11:40Z (public/captures/live-2026-10-01T2111Z.json says how). It is a still and
+// 2026-10-16T01:50:49Z (public/captures/live-2026-10-16T0150Z.json says how). It is a still and
 // is captioned as one; the stream itself is only on /live, after a click, never autoplayed here.
-const FRAME = "/captures/live-2026-10-01T2111Z.webp";
+const FRAME = "/captures/live-2026-10-16T0150Z.webp";
 
 /** The shell's WindowFrame, at a width that fits each layout without scaling its 14px title. */
 function Frame({ width }: { width: number }) {
@@ -19,7 +19,7 @@ function Frame({ width }: { width: number }) {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={FRAME}
-          alt="The live machine's desktop at 16:11 its time: Notes open in Mind View with no notes yet, the status bar showing Ask mode and Yantrik Mind, the taskbar showing Mind View · Notes."
+          alt="The live machine at 20:50 its time: Mind View in front, with the Mind's own terminal reading Starfall's plan, all eight steps ticked, at the start of a round of improvements; the status bar shows Minds: Auto."
           width={1280}
           height={800}
           loading="lazy"
@@ -59,7 +59,7 @@ export function LiveSection() {
             <span className="s-label">The machine right now:</span>
             <LivePill />
             <span className="s-src" style={{ margin: 0 }}>
-              The picture above is one frame of the stream, captured 1 Oct 2026 at 21:11 UTC: a still, not the stream.
+              The picture above is one frame of the stream, captured 16 Oct 2026 at 01:50 UTC: a still, not the stream.
             </span>
           </figcaption>
         </figure>
