@@ -1,3 +1,6 @@
 # The vendored player is checked by its sha512 (public/live/index.html): never touch its bytes.
 public/live/vendor/** -text -diff
 public/live/fonts/** binary
+# The live machine's programs are published byte for byte with their SHA-256 (src/data/builds.json):
+# never let a checkout rewrite their line endings.
+public/built-files/** -text
