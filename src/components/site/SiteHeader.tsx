@@ -13,6 +13,7 @@ import { ThemeToggle } from "./ThemeToggle";
 // /live is a framework-free page outside the app, so it is a plain link, never a client route.
 const NAV = [
   { href: "/live/", label: "Live", live: true },
+  { href: "/built", label: "Built" },
   { href: "/download", label: "Download" },
   { href: "/minds", label: "Minds" },
   { href: "/security", label: "Security" },

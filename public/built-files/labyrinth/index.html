@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Labyrinth</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Labyrinth</h1>
+<div class="bar">
+  <button id="new">New Maze</button>
+  <label>Size
+    <select id="size">
+      <option value="10">10 x 10</option>
+      <option value="20" selected>20 x 20</option>
+      <option value="30">30 x 30</option>
+      <option value="40">40 x 40</option>
+    </select>
+  </label>
+  <label>Solve with
+    <select id="algo">
+      <option value="bfs" selected>Breadth-first search</option>
+      <option value="astar">A*</option>
+    </select>
+  </label>
+  <button id="solve">Solve</button>
+</div>
+<div class="counts">
+  <span>Cells looked at: <b id="looked">0</b></span>
+  <span>Path length: <b id="pathlen">0</b></span>
+</div>
+<canvas id="maze" width="600" height="600"></canvas>
+<script src="maze.js"></script>
+</body>
+</html>

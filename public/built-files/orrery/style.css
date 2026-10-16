@@ -1,0 +1,20 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #05060a;
+  overflow: hidden;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: #e8ecf5;
+}
+
+#sky {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(ellipse at 50% 50%, #0b1020 0%, #05060a 70%, #000 100%);
+  cursor: crosshair;
+}

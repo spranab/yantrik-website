@@ -1,0 +1,420 @@
+{
+  "machine": "yantrik-live-001 (VM 561)",
+  "imported": "2026-10-16",
+  "builds": [
+    {
+      "id": "starfall",
+      "name": "Starfall",
+      "title": "Starfall, a browser game built from scratch",
+      "folder": "starfall",
+      "brief": "Please build a small browser game from scratch, in a folder called starfall inside the Projects folder in your home folder. In the game you steer a little ship along the bottom of the screen, dodge falling stars and catch energy orbs, and the stars fall faster as the score climbs. Use plain HTML, CSS and JavaScript only, all in that one folder, with no libraries and no internet. Do all the work in your own terminal, through the shell's agent_run action: that is how you make the folder, write each file and look at what you wrote. Do not use the Terminal app. Start by writing a short plan into a file called PLAN.md in that folder: a checklist of about eight steps, from an empty page to a finished game with a start screen, score, levels, keyboard and touch controls, and sound that stays off until the player turns it on. Then work through the plan one step at a time: write or change the files, then check the page by running `/opt/yantrik-live/director/check-page ~/Projects/starfall/index.html` through agent_run. It loads the game in a headless browser and prints any error the page throws; no output means it loaded clean. Fix every error it shows. Tick a step off in PLAN.md only when the code for it is really there and the check is clean: a tick is a promise to the people watching. People are watching the screen, so keep each step small and visible. When every step is ticked and the check is clean, say FINISHED on its own line.",
+      "started": "2026-10-01T23:57:18Z",
+      "finished": "2026-10-02T02:29:08Z",
+      "final_run": {
+        "turns": 2,
+        "minutes": 6,
+        "page_checked": true
+      },
+      "made_with": {
+        "os": "not recorded",
+        "mind": "e248474",
+        "model": "not recorded"
+      },
+      "files": [
+        {
+          "name": "game.js",
+          "bytes": 3723,
+          "sha256": "4980e8febf791db4a13b5ad0f158f03e4cc708792e7eb6a0d860ec4961431ad7"
+        },
+        {
+          "name": "index.html",
+          "bytes": 397,
+          "sha256": "5654f56398118d0af67bfdbad81042feb04c36cd29b938bb2eae199b35a4886c"
+        },
+        {
+          "name": "PLAN.md",
+          "bytes": 473,
+          "sha256": "b3e448a6192edb561d821e7238ff7557c4e15653c3075a91767b9b988374e414"
+        },
+        {
+          "name": "style.css",
+          "bytes": 270,
+          "sha256": "83993d1a28dc35594d0b1bd8340d253c52894309aa6186dbafdb7102815177a8"
+        }
+      ],
+      "plan": "# Starfall plan\n\n- [x] 1. index.html: empty page with a canvas element\n- [x] 2. style.css: full-screen dark layout, canvas fills viewport\n- [x] 3. game.js: ship at bottom, arrow-key + touch move, render loop\n- [x] 4. Falling stars spawn and fall\n- [x] 5. Energy orbs spawn and are catchable (+score)\n- [x] 6. Collision: star hit = game over, orb = +10\n- [x] 7. Levels: speed rises with score, start screen + restart\n- [x] 8. Sound: WebAudio beeps, OFF until player toggles\n",
+      "ideas": null,
+      "checked": [
+        {
+          "ok": true,
+          "text": "It starts on Space or a tap; stars and energy orbs fall, and the arrow keys move the ship."
+        },
+        {
+          "ok": null,
+          "text": "Levels, touch controls and the sound toggle were not checked."
+        }
+      ],
+      "checked_on": "2026-10-16",
+      "note": "Built on 1 and 2 Oct 2026 by Mind 172af33, before the Director checked pages, and finished by Mind e248474. The Mind first ticked all eight steps over a game.js that did not parse; the Director now loads the page after every turn, and the mission was run again until it loaded clean (02:23 to 02:29 UTC on 2 Oct)."
+    },
+    {
+      "id": "orrery",
+      "name": "Orrery",
+      "title": "Orrery, the solar system in motion",
+      "folder": "orrery",
+      "brief": "Please build an orrery called Orrery: the Sun and its eight planets moving on a canvas from scratch, in a folder called orrery inside the Projects folder in your home folder. Each planet goes round in its true order and at its true relative speed (the distances may be squeezed so that every orbit fits on the screen). A slider sets how fast time runs, the date the model is showing is printed in a corner, and clicking a planet opens a small card with a few facts about it, written into the code. Use plain HTML, CSS and JavaScript only, all in that one folder, with no libraries and no internet. Do all the work in your own terminal, through the shell's agent_run action: that is how you make the folder, write each file and look at what you wrote. Do not use the Terminal app. Start by writing a short plan into a file called PLAN.md in that folder: a checklist of about 8 steps, from an empty page to a finished orrery with labelled orbits, the time slider, the date, pause and play, and a facts card for every planet. Then work through the plan one step at a time: write or change the files, then check the page by running `/opt/yantrik-live/director/check-page ~/Projects/orrery/index.html` through agent_run. It loads the page in a headless browser and prints any error the page throws; no output means it loaded clean. Fix every error it shows. Tick a step off in PLAN.md only when the code for it is really there and the check is clean: a tick is a promise to the people watching. People are watching the screen, so keep each step small and visible. When every step is ticked and the check is clean, write IDEAS.md in the folder: five improvements you would make next, each an unticked checklist line. Then say FINISHED on its own line.",
+      "started": "2026-10-15T23:21:32Z",
+      "finished": "2026-10-16T00:23:19Z",
+      "final_run": {
+        "turns": 1,
+        "minutes": 1,
+        "page_checked": true
+      },
+      "made_with": {
+        "os": "v0.1.0-1572-gf063fcef",
+        "mind": "6f8a153",
+        "model": "deepseek-v4.1-flash on Ollama Cloud, through the live machine's gate"
+      },
+      "files": [
+        {
+          "name": "IDEAS.md",
+          "bytes": 453,
+          "sha256": "e8fa254771f069d46ee74837fbfca62da76a0dec6d4fca84dd44f6f3de946ebd"
+        },
+        {
+          "name": "index.html",
+          "bytes": 287,
+          "sha256": "ef3e49da71472c2964dbc597737fa5246207c4bca8155599fbd7e8b202ad9f1a"
+        },
+        {
+          "name": "orrery.js",
+          "bytes": 7166,
+          "sha256": "160f99a5ca2b9de09981481e7caaa73b75cda29aea186199b047c4b6e45a169c"
+        },
+        {
+          "name": "PLAN.md",
+          "bytes": 592,
+          "sha256": "088535e60efc14410a8ce517dd33233c429a562895cf2d352f257ce814903c39"
+        },
+        {
+          "name": "style.css",
+          "bytes": 363,
+          "sha256": "709668fed9686494a18298f2b3bbd022eb3ba99a5421ffb5a0e741fa7dfc06c9"
+        }
+      ],
+      "plan": "# Orrery plan\n\n- [x] 1. index.html: canvas page, title, links to style.css and orrery.js\n- [x] 2. style.css: full-screen dark starfield layout, canvas fills viewport\n- [x] 3. orrery.js: Sun + 8 planets in true order, orbits drawn as labelled ellipses\n- [x] 4. Motion: each planet at its true relative orbital period, render loop\n- [x] 5. Time slider: sets how fast time runs; date shown in a corner\n- [x] 6. Pause / play button\n- [x] 7. Click a planet: facts card with a few facts written into the code\n- [x] 8. Check clean: /opt/yantrik-live/director/check-page ~/Projects/orrery/index.html\n",
+      "ideas": "# Orrery — ideas\n\n- [ ] 1. Moon for Earth: a small body orbiting Earth at its true relative period\n- [ ] 2. Planet labels that fade in on hover, instead of always-on text\n- [ ] 3. Zoom and pan the canvas so the inner planets are readable and the outer ones still fit\n- [ ] 4. Real orbital eccentricity: draw ellipses with each planet's actual eccentricity and tilt\n- [ ] 5. A \"today\" button that snaps the simulated date back to the real current date\n",
+      "checked": [
+        {
+          "ok": true,
+          "text": "The Sun and eight labelled planets go round; the date in the corner advanced from 23 Oct to 13 Nov in four seconds at five days a second."
+        },
+        {
+          "ok": null,
+          "text": "Clicking a planet for its facts card was not checked."
+        }
+      ],
+      "checked_on": "2026-10-16",
+      "note": "The first hour of this mission went to two things on the machine, not to the build: its network rule refused the gate the Mind reaches its model through, and each command waited on a card nobody was there to answer. Both were fixed on 15 Oct; the files were then written in about three minutes."
+    },
+    {
+      "id": "life",
+      "name": "Life Lab",
+      "title": "Life Lab, Conway's Game of Life to play with",
+      "folder": "life-lab",
+      "brief": "Please build a Game of Life laboratory called Life Lab from scratch, in a folder called life-lab inside the Projects folder in your home folder. A grid of cells follows Conway's rules. The player draws and erases cells with the mouse or a finger, starts, pauses and steps the world one generation at a time, sets the speed, and drops in classic patterns from a small gallery: a glider, a pulsar, a lightweight spaceship and the Gosper glider gun. Counters show the generation and how many cells are alive. Use plain HTML, CSS and JavaScript only, all in that one folder, with no libraries and no internet. Do all the work in your own terminal, through the shell's agent_run action: that is how you make the folder, write each file and look at what you wrote. Do not use the Terminal app. Start by writing a short plan into a file called PLAN.md in that folder: a checklist of about 8 steps, from an empty page to a finished lab with drawing, play and pause, single steps, speed, the pattern gallery and the counters. Then work through the plan one step at a time: write or change the files, then check the page by running `/opt/yantrik-live/director/check-page ~/Projects/life-lab/index.html` through agent_run. It loads the page in a headless browser and prints any error the page throws; no output means it loaded clean. Fix every error it shows. Tick a step off in PLAN.md only when the code for it is really there and the check is clean: a tick is a promise to the people watching. People are watching the screen, so keep each step small and visible. When every step is ticked and the check is clean, write IDEAS.md in the folder: five improvements you would make next, each an unticked checklist line. Then say FINISHED on its own line.",
+      "started": "2026-10-16T00:33:58Z",
+      "finished": "2026-10-16T00:35:37Z",
+      "final_run": {
+        "turns": 1,
+        "minutes": 2,
+        "page_checked": true
+      },
+      "made_with": {
+        "os": "v0.1.0-1572-gf063fcef",
+        "mind": "6f8a153",
+        "model": "deepseek-v4.1-flash on Ollama Cloud, through the live machine's gate"
+      },
+      "files": [
+        {
+          "name": "IDEAS.md",
+          "bytes": 409,
+          "sha256": "b9bb4b1d23cfac20eca38e20693a9b0adaa04d125a3fba87b5717246c6700d29"
+        },
+        {
+          "name": "index.html",
+          "bytes": 1000,
+          "sha256": "7985a41a590ddcba8def04c9272fb09c1ec2ddce4d11e167217990a440df5721"
+        },
+        {
+          "name": "life.js",
+          "bytes": 6561,
+          "sha256": "f3fd25fb170fe401e2ada3fe3b1bf1d3f949fb1bb429a7d858f06bb8c26bd1cd"
+        },
+        {
+          "name": "PLAN.md",
+          "bytes": 613,
+          "sha256": "5162cb9f32402c6cde4c00c4231511e1398fcefcabd3f8050b15468d5dbe318c"
+        },
+        {
+          "name": "style.css",
+          "bytes": 1314,
+          "sha256": "989f6227096ddb8c34fc4867c6cb9ea16e68a937a4f75d708dce4dcd88340b84"
+        }
+      ],
+      "plan": "# Life Lab — plan\n\n- [x] 1. Folder + empty page: index.html with title, links to style.css and life.js\n- [x] 2. style.css: dark lab layout, toolbar, canvas, counters\n- [x] 3. life.js: grid model + Conway step (birth/survive/die) and render to canvas\n- [x] 4. Mouse/finger drawing: click-drag paints live cells, right-drag or eraser erases\n- [x] 5. Controls: Start / Pause / Step one generation\n- [x] 6. Speed control (generations per second slider)\n- [x] 7. Pattern gallery: glider, pulsar, LWSS, Gosper glider gun — click to drop in\n- [x] 8. Counters: generation number and live cell count; check-page clean\n",
+      "ideas": "# Life Lab — ideas for next\n\n- [ ] Wrap the grid at the edges (toroidal world) so gliders re-enter instead of dying at the wall\n- [ ] Save and load patterns as RLE, so you can paste in anything from LifeWiki\n- [ ] Zoom and pan the canvas, with a cell-size slider\n- [ ] A generation-history scrubber: step back through past generations\n- [ ] Rule presets beyond Conway — HighLife (B36/S23) and Day & Night\n",
+      "checked": [
+        {
+          "ok": true,
+          "text": "Drawing cells works, and the glider, pulsar, lightweight spaceship and Gosper glider gun drop in."
+        },
+        {
+          "ok": false,
+          "text": "Start, Step and Clear do nothing: the script looks for buttons called play, step and clear, and the page calls them playBtn, stepBtn and clearBtn. The world never runs."
+        }
+      ],
+      "checked_on": "2026-10-16",
+      "note": null
+    },
+    {
+      "id": "labyrinth",
+      "name": "Labyrinth",
+      "title": "Labyrinth, a maze that builds and solves itself",
+      "folder": "labyrinth",
+      "brief": "Please build a maze page called Labyrinth from scratch, in a folder called labyrinth inside the Projects folder in your home folder. The page carves a new maze one step at a time so the viewer watches it grow, then finds the way from the top-left corner to the bottom-right and draws the path. There are buttons for a new maze and for the maze's size, a choice between two ways of solving it (breadth-first search and A*), and a count of how many cells each way looked at before it found the exit. Use plain HTML, CSS and JavaScript only, all in that one folder, with no libraries and no internet. Do all the work in your own terminal, through the shell's agent_run action: that is how you make the folder, write each file and look at what you wrote. Do not use the Terminal app. Start by writing a short plan into a file called PLAN.md in that folder: a checklist of about 8 steps, from an empty page to a finished page that carves, animates and solves mazes both ways and shows their counts. Then work through the plan one step at a time: write or change the files, then check the page by running `/opt/yantrik-live/director/check-page ~/Projects/labyrinth/index.html` through agent_run. It loads the page in a headless browser and prints any error the page throws; no output means it loaded clean. Fix every error it shows. Tick a step off in PLAN.md only when the code for it is really there and the check is clean: a tick is a promise to the people watching. People are watching the screen, so keep each step small and visible. When every step is ticked and the check is clean, write IDEAS.md in the folder: five improvements you would make next, each an unticked checklist line. Then say FINISHED on its own line.",
+      "started": "2026-10-16T00:45:58Z",
+      "finished": "2026-10-16T00:47:07Z",
+      "final_run": {
+        "turns": 1,
+        "minutes": 1,
+        "page_checked": true
+      },
+      "made_with": {
+        "os": "v0.1.0-1572-gf063fcef",
+        "mind": "6f8a153",
+        "model": "deepseek-v4.1-flash on Ollama Cloud, through the live machine's gate"
+      },
+      "files": [
+        {
+          "name": "IDEAS.md",
+          "bytes": 539,
+          "sha256": "61cbdc0bfa4ea972399e699e8579f5fcd7dfcecc8da6af2fce3b577149453b0f"
+        },
+        {
+          "name": "index.html",
+          "bytes": 974,
+          "sha256": "da57e72d652ea0cd1c6a93781dc3eafb3ee69d5b90e4460e7d40758a5a710afd"
+        },
+        {
+          "name": "maze.js",
+          "bytes": 5909,
+          "sha256": "8ef7a02469045a8c04fb510178dc4fc301e3339b6755e98fbab4e48623773fb5"
+        },
+        {
+          "name": "PLAN.md",
+          "bytes": 628,
+          "sha256": "7d9aa81914f6332273c69edd52ad7c0d824fa88587a95c41f48908eacdfd143a"
+        },
+        {
+          "name": "style.css",
+          "bytes": 1164,
+          "sha256": "596b48c844e34decafbc899a7a6c93681c562ae48c4af6dd12b125bff88148e4"
+        }
+      ],
+      "plan": "# Labyrinth — plan\n\n- [x] 1. index.html: title, toolbar (New Maze, size select, BFS/A* choice, counters), canvas, script/style links\n- [x] 2. style.css: dark layout for toolbar, canvas, counters\n- [x] 3. maze.js: grid model + randomized DFS carving, rendered as walls on canvas\n- [x] 4. animate the carve: reveal one step at a time on a timer\n- [x] 5. mouse/finger drawing is not needed; size buttons rebuild the maze\n- [x] 6. BFS solver from top-left to bottom-right, counting cells looked at\n- [x] 7. A* solver (Manhattan heuristic), counting cells looked at\n- [x] 8. draw the found path, show both counts, check-page clean\n",
+      "ideas": "# Labyrinth — ideas for next\n\n- [ ] Animate the solver too: show BFS and A* frontier expanding cell by cell, so the two counts are visible as they grow\n- [ ] Run both solvers on the same maze side by side and show the counts as a bar comparison\n- [ ] Add more solvers: Dijkstra, greedy best-first, and a wall-follower, all counted the same way\n- [ ] Weighted terrain (mud, ice) so BFS and A* actually disagree about the best route\n- [ ] Export the maze as PNG and as a text/ASCII map, plus a seed box so a maze can be reproduced exactly\n",
+      "checked": [
+        {
+          "ok": true,
+          "text": "It carves a new maze while you watch, then solves it both ways: on one 20 by 20 maze breadth-first search looked at 208 cells for a path of 105."
+        },
+        {
+          "ok": false,
+          "text": "Solve does nothing while the maze is still being carved."
+        }
+      ],
+      "checked_on": "2026-10-16",
+      "note": null
+    },
+    {
+      "id": "sortbars",
+      "name": "Sortbars",
+      "title": "Sortbars, sorting you can watch",
+      "folder": "sortbars",
+      "brief": "Please build a sorting visualiser called Sortbars from scratch, in a folder called sortbars inside the Projects folder in your home folder. Bars of different heights are sorted on screen one comparison at a time, with the two bars being compared lit up, by bubble sort, insertion sort, merge sort and quicksort. The player picks the algorithm, the number of bars and the speed, and the page counts comparisons and swaps, so the algorithms can be compared side by side. Use plain HTML, CSS and JavaScript only, all in that one folder, with no libraries and no internet. Do all the work in your own terminal, through the shell's agent_run action: that is how you make the folder, write each file and look at what you wrote. Do not use the Terminal app. Start by writing a short plan into a file called PLAN.md in that folder: a checklist of about 8 steps, from an empty page to a finished visualiser with all four algorithms, the controls and the counts. Then work through the plan one step at a time: write or change the files, then check the page by running `/opt/yantrik-live/director/check-page ~/Projects/sortbars/index.html` through agent_run. It loads the page in a headless browser and prints any error the page throws; no output means it loaded clean. Fix every error it shows. Tick a step off in PLAN.md only when the code for it is really there and the check is clean: a tick is a promise to the people watching. People are watching the screen, so keep each step small and visible. When every step is ticked and the check is clean, write IDEAS.md in the folder: five improvements you would make next, each an unticked checklist line. Then say FINISHED on its own line.",
+      "started": "2026-10-16T00:57:58Z",
+      "finished": "2026-10-16T01:03:00Z",
+      "final_run": {
+        "turns": 3,
+        "minutes": 5,
+        "page_checked": true
+      },
+      "made_with": {
+        "os": "v0.1.0-1572-gf063fcef",
+        "mind": "6f8a153",
+        "model": "deepseek-v4.1-flash on Ollama Cloud, through the live machine's gate"
+      },
+      "files": [
+        {
+          "name": "IDEAS.md",
+          "bytes": 474,
+          "sha256": "bf0fa2319d7e24e9606e4bdd822ac980cb1a7a5b32c6f316eb2baeb2ab3a12d0"
+        },
+        {
+          "name": "index.html",
+          "bytes": 1233,
+          "sha256": "f15deec50ea9b0bbb51ef4b4a0ca2e29c3af0450026cb7a002ceb42a3f1ed21b"
+        },
+        {
+          "name": "PLAN.md",
+          "bytes": 607,
+          "sha256": "bcb5f7e069267ecc88448e710980ff660767754dd9dee8d803cacd7e070c071b"
+        },
+        {
+          "name": "sortbars.js",
+          "bytes": 7891,
+          "sha256": "881752036baf8c517d82a4b4d9ae865fc746db81e02ca061b7abe78d8e7fcbd5"
+        },
+        {
+          "name": "style.css",
+          "bytes": 1078,
+          "sha256": "f74ad853e83741031263b730def2bbcaa0e107d9b98833888ff50d832b592171"
+        }
+      ],
+      "plan": "# Sortbars — plan\n\n- [x] 1. Empty page: index.html with title, toolbar, canvas, links to style.css and sortbars.js\n- [x] 2. style.css: dark layout for toolbar, controls, canvas, counters\n- [x] 3. sortbars.js: bar model + random array generator + canvas render of bars\n- [x] 4. Controls: algorithm picker, bar-count slider, speed slider, New Array button\n- [x] 5. Step engine: run/pause/step-one-comparison with compared bars lit up\n- [x] 6. Bubble sort + insertion sort as generator steps\n- [x] 7. Merge sort + quicksort as generator steps\n- [x] 8. Counters: comparisons and swaps, live; check-page clean\n",
+      "ideas": "# Sortbars — ideas for next\n\n- [ ] 1. Heap sort and shell sort, so all six classics can be raced side by side\n- [ ] 2. A race mode: run two algorithms on the same array at once, two canvases, two counter pairs\n- [ ] 3. Sound: a tone per comparison whose pitch tracks the bar height, with a mute toggle\n- [ ] 4. A time bar chart of comparisons/swaps per algorithm, accumulated over runs\n- [ ] 5. Save and share the array via the URL hash, so a specific run can be replayed\n",
+      "checked": [
+        {
+          "ok": true,
+          "text": "All four sorts run with the compared bars lit. At full speed on 40 bars, merge sort finished in 168 comparisons and quicksort in 166; bubble and insertion sort were still going after nine seconds."
+        }
+      ],
+      "checked_on": "2026-10-16",
+      "note": null
+    },
+    {
+      "id": "blockfall",
+      "name": "Blockfall",
+      "title": "Blockfall, a falling-blocks puzzle",
+      "folder": "blockfall",
+      "brief": "Please build a falling-blocks puzzle game called Blockfall from scratch, in a folder called blockfall inside the Projects folder in your home folder. Shapes made of four squares fall into a well ten squares wide and twenty tall. The player moves and turns them with the keyboard or with touch buttons, full rows clear and score, the fall speeds up every ten rows, the next shape is shown beside the well, and the best score is kept in the browser's local storage. Use plain HTML, CSS and JavaScript only, all in that one folder, with no libraries and no internet. Do all the work in your own terminal, through the shell's agent_run action: that is how you make the folder, write each file and look at what you wrote. Do not use the Terminal app. Start by writing a short plan into a file called PLAN.md in that folder: a checklist of about 8 steps, from an empty page to a finished game with a start screen, pause, scoring, levels, the next-shape preview, touch buttons and a game-over screen with the best score. Then work through the plan one step at a time: write or change the files, then check the page by running `/opt/yantrik-live/director/check-page ~/Projects/blockfall/index.html` through agent_run. It loads the page in a headless browser and prints any error the page throws; no output means it loaded clean. Fix every error it shows. Tick a step off in PLAN.md only when the code for it is really there and the check is clean: a tick is a promise to the people watching. People are watching the screen, so keep each step small and visible. When every step is ticked and the check is clean, write IDEAS.md in the folder: five improvements you would make next, each an unticked checklist line. Then say FINISHED on its own line.",
+      "started": "2026-10-16T01:13:58Z",
+      "finished": "2026-10-16T01:16:13Z",
+      "final_run": {
+        "turns": 1,
+        "minutes": 2,
+        "page_checked": true
+      },
+      "made_with": {
+        "os": "v0.1.0-1572-gf063fcef",
+        "mind": "6f8a153",
+        "model": "deepseek-v4.1-flash on Ollama Cloud, through the live machine's gate"
+      },
+      "files": [
+        {
+          "name": "blockfall.js",
+          "bytes": 5104,
+          "sha256": "7baa67f99ba3ae730092b8fcfcb6b5167efc96110d3aff4b995f537dd3f275b9"
+        },
+        {
+          "name": "index.html",
+          "bytes": 945,
+          "sha256": "09e863b98ca9aae17e3c6a8e009163333bc91a42036bf7d0818f17787e6a5287"
+        },
+        {
+          "name": "PLAN.md",
+          "bytes": 612,
+          "sha256": "5ae339db311f91e4d0f84041761b65dfbd6899123e5c230667b509e633d31715"
+        },
+        {
+          "name": "style.css",
+          "bytes": 1307,
+          "sha256": "c281652ea292720ceccc6fc5e91c3391d78c98ca9d01cf5d00a384b0db05b0d1"
+        }
+      ],
+      "plan": "# Blockfall — plan\n\n- [x] 1. Empty page: index.html with title, canvas well, side panel, links to style.css and blockfall.js\n- [ ] 2. style.css: dark layout, well + side panel (next shape, score, level, best)\n- [ ] 3. blockfall.js: board model 10x20, tetromino definitions and colours\n- [x] 4. Render the well and the falling piece on the canvas\n- [x] 5. Gravity tick + keyboard controls (left, right, down, rotate)\n- [x] 6. Locking, full-row clearing, scoring\n- [ ] 7. Speed up every 10 rows; level counter\n- [ ] 8. Next-shape preview, start/pause, game over screen, best score in localStorage, touch buttons\n",
+      "ideas": null,
+      "checked": [
+        {
+          "ok": true,
+          "text": "Pieces fall, move, turn and stack, by keyboard or the on-screen buttons."
+        },
+        {
+          "ok": false,
+          "text": "The Next box stays empty: the function that should draw the next piece only clears it."
+        },
+        {
+          "ok": false,
+          "text": "Best is shown but not kept: nothing is saved between visits, though the brief asked for it."
+        }
+      ],
+      "checked_on": "2026-10-16",
+      "note": null
+    },
+    {
+      "id": "pixelsmith",
+      "name": "Pixelsmith",
+      "title": "Pixelsmith, a pixel-art editor",
+      "folder": "pixelsmith",
+      "brief": "Please build a pixel-art editor called Pixelsmith from scratch, in a folder called pixelsmith inside the Projects folder in your home folder. A canvas of 32 by 32 big pixels, a palette of sixteen colours, a pencil, an eraser, a flood fill and a colour picker, undo and redo, a grid that can be turned off, and a live preview at actual size. The drawing is kept in the browser's local storage so it survives a reload, and the page opens with a small example drawing so the screen is never empty. Use plain HTML, CSS and JavaScript only, all in that one folder, with no libraries and no internet. Do all the work in your own terminal, through the shell's agent_run action: that is how you make the folder, write each file and look at what you wrote. Do not use the Terminal app. Start by writing a short plan into a file called PLAN.md in that folder: a checklist of about 8 steps, from an empty page to a finished editor with every tool, undo and redo, the preview and the saved drawing. Then work through the plan one step at a time: write or change the files, then check the page by running `/opt/yantrik-live/director/check-page ~/Projects/pixelsmith/index.html` through agent_run. It loads the page in a headless browser and prints any error the page throws; no output means it loaded clean. Fix every error it shows. Tick a step off in PLAN.md only when the code for it is really there and the check is clean: a tick is a promise to the people watching. People are watching the screen, so keep each step small and visible. When every step is ticked and the check is clean, write IDEAS.md in the folder: five improvements you would make next, each an unticked checklist line. Then say FINISHED on its own line.",
+      "started": "2026-10-16T01:26:58Z",
+      "finished": "2026-10-16T01:27:46Z",
+      "final_run": {
+        "turns": 1,
+        "minutes": 1,
+        "page_checked": true
+      },
+      "made_with": {
+        "os": "v0.1.0-1572-gf063fcef",
+        "mind": "6f8a153",
+        "model": "deepseek-v4.1-flash on Ollama Cloud, through the live machine's gate"
+      },
+      "files": [
+        {
+          "name": "IDEAS.md",
+          "bytes": 506,
+          "sha256": "f0c2e790b32269174e70efc5328b77a97a39a1110505f902d1c84d5a10306488"
+        },
+        {
+          "name": "index.html",
+          "bytes": 969,
+          "sha256": "a3ad66fefb30f5b3529409b4002cb1368132905fd815dba2839e42cb3504bae9"
+        },
+        {
+          "name": "pixelsmith.js",
+          "bytes": 7312,
+          "sha256": "7855468d1d9e425cbf64bdfefb8e61d8586726830f3a6a256ebd7b7c2a06683e"
+        },
+        {
+          "name": "PLAN.md",
+          "bytes": 537,
+          "sha256": "2bb401ac8718adbd59c0bcdea10625058f4637cd6d48c8adc78f80d57a304edd"
+        },
+        {
+          "name": "style.css",
+          "bytes": 1315,
+          "sha256": "5e395f369c175915c692edffdb5daf0edf8923081111d0652475a679b3f090ea"
+        }
+      ],
+      "plan": "# Pixelsmith — plan\n\n- [x] 1. Empty page: index.html with title, canvas, toolbar, links to style.css + pixelsmith.js\n- [x] 2. style.css: dark layout, 32x32 canvas scaled up, palette grid, preview panel\n- [x] 3. pixelsmith.js: 32x32 model, render loop, grid overlay toggle\n- [x] 4. Pencil + eraser: mouse and touch draw/erase cells\n- [x] 5. 16-colour palette + colour picker (eyedropper) tool\n- [x] 6. Flood fill tool\n- [x] 7. Undo / redo history stack\n- [x] 8. Live 1:1 preview + localStorage save/load + example drawing on first open\n",
+      "ideas": "# Pixelsmith — ideas for next\n\n- [ ] 1. Layers: a background layer plus one or more paint layers, with show/hide and reorder\n- [ ] 2. Export the drawing as a real PNG (and import one back in) via a canvas download\n- [ ] 3. A select/move tool with copy, paste and mirror, so a shape can be duplicated across the grid\n- [ ] 4. A small animation strip: several frames with an onion-skin view and a play button\n- [ ] 5. Custom palettes: save the current 16 colours under a name and switch between saved sets\n",
+      "checked": [
+        {
+          "ok": true,
+          "text": "It opens on an example drawing; the pencil draws, and a drawing survives a reload."
+        },
+        {
+          "ok": null,
+          "text": "Here the drawing is not kept between visits: the page runs in a sandbox with no storage of its own. On the live machine it is."
+        },
+        {
+          "ok": null,
+          "text": "Fill, the colour picker, undo and redo were not checked."
+        }
+      ],
+      "checked_on": "2026-10-16",
+      "note": null
+    }
+  ]
+}

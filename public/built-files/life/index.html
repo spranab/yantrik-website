@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Life Lab</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Life Lab</h1>
+<p class="sub">Conway's Game of Life</p>
+
+<div class="toolbar">
+  <button id="playBtn">Start</button>
+  <button id="stepBtn">Step</button>
+  <button id="clearBtn">Clear</button>
+  <button id="eraserBtn" data-mode="draw">Erase</button>
+  <label>Speed <input type="range" id="speed" min="1" max="60" value="8"><span id="speedOut">8/s</span></label>
+</div>
+
+<div class="gallery">
+  <button data-pattern="glider">Glider</button>
+  <button data-pattern="pulsar">Pulsar</button>
+  <button data-pattern="lwss">LWSS</button>
+  <button data-pattern="gosper">Gosper Gun</button>
+</div>
+
+<canvas id="board"></canvas>
+
+<div class="counters">
+  <span>Generation <b id="gen">0</b></span>
+  <span>Alive <b id="live">0</b></span>
+</div>
+
+<script src="life.js"></script>
+</body>
+</html>
