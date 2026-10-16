@@ -1,0 +1,9 @@
+{
+  "what": "One frame of the Yantrik Live stream, as any viewer receives it",
+  "captured_utc": "2026-10-16T01:50:49Z",
+  "from": "https://yantrikos.com/live/hls/index.m3u8",
+  "how": "ffmpeg -i https://yantrikos.com/live/hls/index.m3u8?cookieCheck=1 -frames:v 1 frame.png (one of fifteen taken 25 s apart from 01:48 to 01:54 UTC), then ffmpeg -c:v libwebp -quality 88 to this .webp; not otherwise edited",
+  "stream": "ffprobe: h264, 1280x800, r_frame_rate 3/1, one stream (no audio), read 16 Oct 2026",
+  "shows": "Mind View in front, with the Mind's own terminal reading Starfall's PLAN.md at the start of a polish round; the status bar says Minds: Auto",
+  "shown_on": "the homepage's Live section, captioned as a still"
+}

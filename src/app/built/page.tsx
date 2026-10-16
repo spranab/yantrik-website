@@ -150,11 +150,11 @@ export default function Built() {
     <SiteShell>
       <div className="s-wrap" style={{ paddingTop: 72 }}>
         <p className="s-route">yantrikos.com/built</p>
-        <h1 className="s-display">Built on the live machine, and not touched since.</h1>
+        <h1 className="s-display">Built on the live machine. Nobody fixed them by hand.</h1>
         <p className="s-sub">
           These are programs the Mind on the <a className="s-link" href="/live/">live machine</a> wrote on stream, from a
-          brief and nothing else. They are copied here byte for byte as it left them, and they play as they are, bugs
-          included. Under each is what we found when we played it.
+          brief and nothing else. They are copied here byte for byte as they stood on the day shown at the foot of the
+          page, and they play as they are, bugs included. Under each is what we found when we played it.
         </p>
         <div className="s-prose built-how">
           <p>
@@ -165,7 +165,8 @@ export default function Built() {
           </p>
           <p>
             A clean load is not a working program. Two of these ticked steps whose buttons do nothing, and say so below.
-            Nothing here was fixed by hand.
+            Once every program is built, the Director goes back round them one improvement at a time, so the machine&rsquo;s
+            copies move on; these stay as they were.
           </p>
         </div>
         <nav className="built-index" aria-label="The builds">
