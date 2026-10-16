@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { CopyButton } from "./CopyButton";
-import { ISO_BASE, LATEST_JSON, commitOf, gib, parseLatest, type Release } from "@/lib/release";
+import { ISO_BASE, LATEST_ALIAS, LATEST_JSON, commitOf, gib, parseLatest, type Release } from "@/lib/release";
 import { OS_REPO } from "@/lib/os-repo";
 
 /**
@@ -31,7 +31,12 @@ export function ReleaseBlock({ initial, compact = false }: { initial: Release; c
     };
   }, []);
 
-  const url = `${ISO_BASE}/${r.file}`;
+  // One link, always: the host's `latest` alias, which yantrik-publish re-points at every nightly.
+  // Never a build's own filename: the host keeps only the newest few images, so a filename on a
+  // page is a 404 a week later. The live site linked builds 1067 and 1084 for days after both were
+  // pruned. Pranab, 10 Oct: "We should have one version latest, and that should always resolve to
+  // the latest nightly." The fields above still say which build that is today.
+  const url = `${ISO_BASE}/${LATEST_ALIAS}`;
   const commit = commitOf(r.file);
   const rows: [string, React.ReactNode, string?][] = [
     ["file", r.file, r.file],
@@ -86,7 +91,7 @@ export function ReleaseBlock({ initial, compact = false }: { initial: Release; c
           Its sha256 file
         </a>
         {r.changelog && !compact ? (
-          <a className="s-btn s-btn-quiet" href={`${ISO_BASE}/${r.changelog}`}>
+          <a className="s-btn s-btn-quiet" href={`${ISO_BASE}/yantrik-os-latest.changelog.md`}>
             What changed in it
           </a>
         ) : null}
