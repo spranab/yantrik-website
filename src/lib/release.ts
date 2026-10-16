@@ -9,6 +9,8 @@ import fallback from "@/data/release.json";
 
 export const ISO_BASE = "https://iso.yantrikos.com/nightly";
 export const LATEST_JSON = `${ISO_BASE}/latest.json`;
+/** The host's symlink to the newest image (and `<alias>.sha256`): it never goes stale. */
+export const LATEST_ALIAS = "yantrik-os-latest.iso";
 
 export type Release = {
   file: string;
