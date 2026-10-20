@@ -15,6 +15,20 @@ import { evaluate, globals, stripComments } from "./lib/slint-expr.mjs";
 
 const osRepo = resolve(process.env.YANTRIK_OS ?? "../yantrik-os");
 const themePath = resolve(osRepo, "crates/yantrik-design-tokens/slint/theme.slint");
+
+// The site mirrors the OS it reads. A checkout behind origin/main gives the site last month's OS
+// (it once put the old mark back on every build), so say so before anything is generated.
+try {
+  const { execSync } = await import("node:child_process");
+  const q = (c) => execSync(c, { cwd: osRepo, stdio: ["ignore", "pipe", "ignore"] }).toString().trim();
+  const head = q("git rev-parse --short HEAD");
+  const behind = Number(q("git rev-list --count HEAD..origin/main"));
+  if (behind > 0)
+    console.warn(`tokens: WARNING ${osRepo} is at ${head}, ${behind} commits behind origin/main; ` +
+      `the site will show that older OS. Set YANTRIK_OS to an up-to-date checkout.`);
+} catch {
+  // Not a git checkout, or no origin/main: nothing to compare against.
+}
 const out = new URL("../src/os/tokens.css", import.meta.url);
 const all = globals(stripComments(readFileSync(themePath, "utf8")));
 
