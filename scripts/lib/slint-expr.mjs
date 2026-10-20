@@ -32,7 +32,7 @@ export function globals(text) {
 /** Slint source without its line comments. */
 export const stripComments = (text) => text.replace(/\/\/[^\n]*/g, "");
 
-const TOKEN = /\s*(#[0-9a-fA-F]{3,8}|-?\d+(?:\.\d+)?(?:px|ms|pt|%)?|"[^"]*"|==|!=|&&|\|\||[?:()!,]|[A-Za-z_][\w-]*(?:\.[A-Za-z_][\w-]*)*)/y;
+const TOKEN = /\s*(#[0-9a-fA-F]{3,8}|-?\d+(?:\.\d+)?(?:px|ms|pt|%)?|"[^"]*"|==|!=|&&|\|\||[?:()!,*]|[A-Za-z_][\w-]*(?:\.[A-Za-z_][\w-]*)*)/y;
 
 function tokenize(expr) {
   const toks = [];
@@ -129,11 +129,27 @@ export function evaluate(all, expr, scope, env, seen = new Set()) {
     }
     return lookup(t);
   }
+  // `a * b`: a length or duration times a plain number, as the theme scales its type by
+  // TextScale.factor (`44px * TextScale.factor`). The unit is the one operand that has it.
+  function product() {
+    let a = primary();
+    while (peek() === "*") {
+      take();
+      const b = primary();
+      const unit = (x) => (typeof x === "string" ? (x.match(/^-?[\d.]+([a-z%]*)$/) ?? [])[1] : undefined);
+      const ua = unit(a), ub = unit(b);
+      if (ua === undefined || ub === undefined) throw new Error(`* of a non-number in "${expr}"`);
+      if (ua && ub) throw new Error(`* of two units in "${expr}"`);
+      const v = parseFloat(a) * parseFloat(b);
+      a = `${Number.isInteger(v) ? v : +v.toFixed(4)}${ua || ub}`;
+    }
+    return a;
+  }
   function equality() {
-    const a = primary();
+    const a = product();
     if (peek() !== "==" && peek() !== "!=") return a;
     const op = take();
-    const b = primary();
+    const b = product();
     return op === "==" ? num(a) === num(b) : num(a) !== num(b);
   }
   function and() {
