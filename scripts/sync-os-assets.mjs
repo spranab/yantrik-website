@@ -12,7 +12,9 @@ const copies = [
   ["crates/yantrik-design-tokens/slint/fonts/Barlow-SemiBold.ttf", "src/fonts/Barlow-SemiBold.ttf"],
   ["crates/yantrik-design-tokens/slint/fonts/JetBrainsMono-Regular.ttf", "src/fonts/JetBrainsMono-Regular.ttf"],
   ["crates/yantrik-design-tokens/slint/fonts/JetBrainsMono-Medium.ttf", "src/fonts/JetBrainsMono-Medium.ttf"],
-  ["brand/yantrik-mark.svg", "public/brand/yantrik-mark.svg"],
+  // The brand is not synced from the OS checkout: it lives in public/brand/ and src/app/ as
+  // yantrik-os/brand/render.py writes it (see public/brand/README.md). A sync from a stale
+  // checkout once put the old mark back on every build.
   // The desktop replica (src/os): the default wallpaper preset (app_context.rs sets "serenity"),
   // the titlebar buttons labwc draws from the theme directory (scripts/render-window-buttons.py,
   // installed by yantrik-session), and the picture Mind View shows while it is empty.
